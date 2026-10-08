@@ -1,0 +1,186 @@
+{
+  "nombre": "mitdb_binario_v1",
+  "base": "MIT-BIH Arrhythmia Database (PhysioNet, mitdb 1.0.0)",
+  "parametros": {
+    "fs_hz": 360,
+    "derivacion": "MLII",
+    "banda_hz": [
+      0.5,
+      40.0
+    ],
+    "orden_filtro": 4,
+    "filtro": "Butterworth pasa-banda, filtfilt (fase cero)",
+    "normalizacion": "z-score por registro",
+    "media_ventana": 144,
+    "longitud_ventana": 288,
+    "simbolos_normal": [
+      "N"
+    ],
+    "simbolos_anormal": [
+      "L",
+      "R",
+      "A",
+      "a",
+      "J",
+      "S",
+      "V",
+      "E",
+      "F",
+      "j",
+      "e"
+    ],
+    "excluidos_marcapasos": [
+      "102",
+      "104",
+      "107",
+      "217"
+    ],
+    "excluidos_prueba": [
+      "202"
+    ],
+    "semilla_particion": 42
+  },
+  "registros_validacion": [
+    "106",
+    "108",
+    "116",
+    "205",
+    "207"
+  ],
+  "registros_por_particion": {
+    "entrenamiento": [
+      "101",
+      "109",
+      "112",
+      "114",
+      "115",
+      "118",
+      "119",
+      "122",
+      "124",
+      "201",
+      "203",
+      "208",
+      "209",
+      "215",
+      "220",
+      "223",
+      "230"
+    ],
+    "validacion": [
+      "106",
+      "108",
+      "116",
+      "205",
+      "207"
+    ],
+    "prueba": [
+      "100",
+      "103",
+      "105",
+      "111",
+      "113",
+      "117",
+      "121",
+      "123",
+      "200",
+      "210",
+      "212",
+      "213",
+      "214",
+      "219",
+      "221",
+      "222",
+      "228",
+      "231",
+      "232",
+      "233",
+      "234"
+    ],
+    "prueba_excluida": [
+      "202"
+    ]
+  },
+  "conteos": {
+    "entrenamiento": {
+      "latidos": 40276,
+      "normal": 29969,
+      "anormal": 10307,
+      "simbolos": {
+        "A": 695,
+        "F": 401,
+        "J": 32,
+        "L": 2490,
+        "N": 29969,
+        "R": 3695,
+        "S": 2,
+        "V": 2861,
+        "a": 100,
+        "e": 16,
+        "j": 15
+      }
+    },
+    "validacion": {
+      "latidos": 10714,
+      "normal": 8116,
+      "anormal": 2598,
+      "simbolos": {
+        "A": 115,
+        "E": 105,
+        "F": 13,
+        "L": 1457,
+        "N": 8116,
+        "R": 85,
+        "V": 822,
+        "j": 1
+      }
+    },
+    "prueba": {
+      "latidos": 47548,
+      "normal": 34366,
+      "anormal": 13182,
+      "simbolos": {
+        "A": 1700,
+        "E": 1,
+        "F": 387,
+        "J": 51,
+        "L": 4124,
+        "N": 34366,
+        "R": 3475,
+        "V": 3200,
+        "a": 31,
+        "j": 213
+      }
+    },
+    "prueba_excluida": {
+      "latidos": 2135,
+      "normal": 2060,
+      "anormal": 75,
+      "simbolos": {
+        "A": 36,
+        "F": 1,
+        "N": 2060,
+        "V": 19,
+        "a": 19
+      }
+    }
+  },
+  "forma_X": [
+    100673,
+    288
+  ],
+  "sha256": {
+    "X": "a899373cd5c7bc8c7a4c43b36ea5042ff3e96cefcd049e614aec2513f57acb43",
+    "y": "942b5b7025bc9b82914330ac864ba49e5911f1fafe9790e3548cd16a2cd690ee",
+    "registro": "ac1ee2e2a85a3ed1a495ea67d401fb7e14b3c3c4ca6b34e4cd03a3e1b358c7ff",
+    "simbolo": "9321349264799017d981b2980289386c7a52ccde0680044c560656428e356e00",
+    "muestra_r": "39e10fd6690b008bf1c1ac3c866c5e12ca9b52cbef85f5b641f4f6c339e9c2b1",
+    "particion": "18572131ac5dd5c691308168793f976556205e8d5ff426b5088564f2b0c9be93"
+  },
+  "versiones": {
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "wfdb": "4.3.1",
+    "scikit-learn": "1.9.1"
+  }
+}
