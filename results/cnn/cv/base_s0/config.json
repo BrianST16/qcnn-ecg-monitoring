@@ -1,0 +1,33 @@
+{
+  "nombre": "base",
+  "modelo": {
+    "filtros": [
+      16,
+      32,
+      64
+    ],
+    "kernels": [
+      7,
+      5,
+      3
+    ],
+    "pools": [
+      2,
+      2,
+      2
+    ],
+    "cabeza": "gap",
+    "ocultas": 32,
+    "dropout": 0.3,
+    "longitud_entrada": 288
+  },
+  "entrenamiento": {
+    "tasa_aprendizaje": 0.0003,
+    "tamano_lote": 256,
+    "epocas_max": 30,
+    "paciencia": 5,
+    "paciencia_lr": 2,
+    "factor_lr": 0.1,
+    "hilos": 4
+  }
+}
