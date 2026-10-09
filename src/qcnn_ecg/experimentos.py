@@ -199,6 +199,19 @@ def _escribir_resumen(ablacion, omitidas, mejor, finales, pruebas, motivo, minut
         " validación propia para elegir entre ellas), copiado a"
         " `modelos_entrenados/cnn1d_final.pt`.",
         "",
+        "## Limitaciones conocidas (pendientes para el Ciclo 3)",
+        "",
+        "1. **Media móvil no centrada.** La época se elige con la media del F1 de las épocas"
+        " t-2, t-1 y t, pero se guarda el estado de la época t: las épocas anteriores le dan"
+        " crédito. En 4 de 5 pliegues de `base` la mejor época resultó ser la 3, por lo que el"
+        " modelo final entrena solo 3 épocas. Corrección: media centrada (t-1, t, t+1).",
+        "2. **Umbral calculado con otros modelos.** El umbral sale de las predicciones de los 5"
+        " modelos de la validación cruzada (con su propio punto de parada y reducción de tasa de"
+        " aprendizaje), pero se aplica a un modelo final distinto, entrenado con todo DS1 y otra"
+        " semilla. Por eso la sensibilidad en prueba varía mucho entre semillas (0.42 a 0.86)."
+        " Corrección: usar como modelo final el ensamble de los 5 modelos de la CV.",
+        "3. La CV de la ablación usa una sola semilla; el filtro `filtfilt` no es causal.",
+        "",
         "La corrida anterior con un único pliegue de validación (5 pacientes) está en"
         " `results/cnn_pliegue_unico/`: allí el umbral elegido (≈ 0.997) no se trasladó a la"
         " prueba (F1 0.29 con AUC-ROC 0.90), lo que motivó este protocolo.",

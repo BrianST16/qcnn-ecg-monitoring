@@ -87,7 +87,7 @@ uv run pytest                                  # pruebas
 | Parámetros | 11,265 |
 | Latencia por latido (CPU) | < 1 ms |
 
-Detalles en `results/cnn/resumen.md` y en `notebooks/02_cnn1d_resultados.ipynb`. El modelo para el prototipo está en `modelos_entrenados/cnn1d_final.pt`.
+La sensibilidad varía mucho entre semillas por dos limitaciones conocidas en la elección de época y umbral, documentadas en `results/cnn/resumen.md` y pendientes para el Ciclo 3. Detalles en `results/cnn/resumen.md` y en `notebooks/02_cnn1d_resultados.ipynb`. El modelo para el prototipo está en `modelos_entrenados/cnn1d_final.pt`.
 
 > El notebook EDA original usa TensorFlow; para ejecutarlo localmente: `uv sync --group legacy`.
 
