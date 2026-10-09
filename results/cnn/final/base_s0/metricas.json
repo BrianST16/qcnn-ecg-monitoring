@@ -1,0 +1,9 @@
+{
+  "nombre": "base",
+  "semilla": 0,
+  "epocas": 3,
+  "umbral": 0.6149861812591553,
+  "parametros": 11265,
+  "segundos_entrenamiento": 51.59349890000885,
+  "conjunto": "mitdb_binario_v1"
+}

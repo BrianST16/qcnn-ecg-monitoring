@@ -1,0 +1,44 @@
+[project]
+name = "qcnn-ecg"
+version = "0.1.0"
+description = "Comparación de CNN 1-D y QCNN para clasificación de señales ECG (MIT-BIH / PTB-XL)"
+authors = [
+    { name = "Juanjo Barrientos", email = "juanj.barrientos@udea.edu.co" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "matplotlib>=3.11.2",
+    "numpy>=2.5.3",
+    "pandas>=3.0.6",
+    "pennylane>=0.45.1",
+    "scikit-learn>=1.9.1",
+    "scipy>=1.18.1",
+    "torch>=2.14.1",
+    "wfdb>=4.3.1",
+]
+
+[build-system]
+requires = ["uv_build>=0.12.19,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "ipykernel>=7.4.0",
+    "ipywidgets>=8.1.9",
+    "jupyterlab>=4.6.4",
+    "pytest>=9.1.1",
+    "ruff>=0.16.10",
+]
+legacy = [
+    "tensorflow>=2.21.0",
+]
+
+[tool.ruff]
+line-length = 100
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

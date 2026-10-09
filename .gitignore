@@ -6,6 +6,7 @@ __pycache__/
 # C extensions
 *.so
 
+
 # Distribution / packaging
 .Python
 build/
@@ -216,3 +217,10 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Datos locales (MIT-BIH, PTB-XL, artefactos generados); solo se versionan los manifiestos
+data/*
+!data/manifiestos/
+
+# Pesos de corridas de entrenamiento (el modelo final va en modelos_entrenados/)
+results/**/*.pt
