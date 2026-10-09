@@ -2,7 +2,7 @@ import numpy as np
 
 from qcnn_ecg import config
 from qcnn_ecg.datos import leer_anotaciones, leer_registro
-from qcnn_ecg.particion import asignar_particiones, elegir_validacion
+from qcnn_ecg.particion import asignar_particiones, elegir_validacion, pliegues_ds1
 from qcnn_ecg.preprocesamiento import etiquetar_simbolo
 
 from .conftest import requiere_mitdb
@@ -44,3 +44,13 @@ def test_mlii_por_nombre_en_registro_114():
     registro = leer_registro("114")
     assert registro.derivacion == "MLII" and registro.indice_canal == 1
     assert all(leer_registro(r).derivacion == "MLII" for r in ("100", "201"))
+
+
+def test_pliegues_ds1_cubren_cada_registro_una_vez():
+    rng = np.random.default_rng(0)
+    registros = np.repeat(np.array(config.DS1), 50)
+    y = rng.integers(0, 2, len(registros))
+    pliegues = pliegues_ds1(registros, y)
+    todos = [r for p in pliegues for r in p]
+    assert len(pliegues) == 5
+    assert sorted(todos) == sorted(config.DS1)  # cada registro en exactamente un pliegue

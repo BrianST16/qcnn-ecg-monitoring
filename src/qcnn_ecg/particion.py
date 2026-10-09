@@ -54,3 +54,18 @@ def asignar_particiones(validacion: tuple[str, ...]) -> dict[str, str]:
     for r in DS2:
         asignacion[r] = "prueba_excluida" if r in EXCLUIDOS_PRUEBA else "prueba"
     return asignacion
+
+
+def pliegues_ds1(
+    registros: np.ndarray, y: np.ndarray, semilla: int = SEMILLA_PARTICION, n_pliegues: int = 5
+) -> list[tuple[str, ...]]:
+    """Pliegues de validación cruzada por paciente sobre DS1 (registros de cada pliegue).
+
+    Cada registro aparece en exactamente un pliegue; los pliegues se estratifican por
+    la proporción de latidos anormales.
+    """
+    divisor = StratifiedGroupKFold(n_splits=n_pliegues, shuffle=True, random_state=semilla)
+    return [
+        tuple(sorted(set(registros[validacion].tolist())))
+        for _, validacion in divisor.split(registros, y, registros)
+    ]

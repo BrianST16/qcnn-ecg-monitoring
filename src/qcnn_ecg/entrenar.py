@@ -50,6 +50,11 @@ def _guardar_json(datos: dict, ruta: Path) -> None:
     ruta.write_text(json.dumps(datos, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
 
+def _mejor_epoca(historial: list[dict]) -> int:
+    suavizado = pd.DataFrame(historial)["f1_val_suavizado"]
+    return int(suavizado.idxmax()) + 1 if suavizado.notna().any() else len(historial)
+
+
 def ejecutar_corrida(
     ruta_config: Path,
     semilla: int,
@@ -90,7 +95,7 @@ def ejecutar_corrida(
         "rapido": rapido,
         "parametros": parametros,
         "epocas": len(historial),
-        "mejor_epoca": int(pd.DataFrame(historial)["f1_val"].idxmax()) + 1,
+        "mejor_epoca": _mejor_epoca(historial),
         "segundos_entrenamiento": segundos,
         "umbral": umbral,
         "validacion": calcular_metricas(y_val, p_val, umbral),

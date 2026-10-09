@@ -10,7 +10,7 @@ ocultas = 32
 dropout = 0.5
 
 [entrenamiento]
-tasa_aprendizaje = 1e-3
+tasa_aprendizaje = 3e-4
 tamano_lote = 256
 epocas_max = 30
 paciencia = 5

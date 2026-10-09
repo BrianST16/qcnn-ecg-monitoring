@@ -21,8 +21,12 @@ def graficar_curvas(historial: pd.DataFrame, ruta: Path, titulo: str = "") -> No
     eje_f1.plot(historial["epoca"], historial["f1_ent_05"], label="Entrenamiento (umbral 0.5)")
     eje_f1.plot(historial["epoca"], historial["f1_val_05"], label="Validación (umbral 0.5)")
     eje_f1.plot(historial["epoca"], historial["f1_val"], label="Validación (umbral óptimo)")
-    mejor = historial.loc[historial["f1_val"].idxmax()]
-    eje_f1.axvline(mejor["epoca"], color="gray", ls="--", lw=1, label="Mejor época")
+    eje_f1.plot(
+        historial["epoca"], historial["f1_val_suavizado"], lw=2.5, label="Validación (suavizado)"
+    )
+    if historial["f1_val_suavizado"].notna().any():
+        mejor = historial.loc[historial["f1_val_suavizado"].idxmax()]
+        eje_f1.axvline(mejor["epoca"], color="gray", ls="--", lw=1, label="Mejor época")
     eje_f1.set(title="F1 de la clase ANORMAL", xlabel="Época", ylabel="F1")
     for eje in (eje_perdida, eje_f1):
         eje.grid(alpha=0.3)
