@@ -1,0 +1,66 @@
+import time
+from types import SimpleNamespace
+
+import pytest
+
+from app.analisis import MENSAJE_QCNN, armar_resultados, armar_respuesta
+from app.modelos.registro import cargar_modelos
+from tests.test_analisis import construir_procesada, construir_senal
+
+
+def ajustes(qcnn_modo="desactivada"):
+    return SimpleNamespace(modelo_simulado=True, qcnn_modo=qcnn_modo, ruta_modelo_qcnn="no_importa.pt")
+
+
+def test_qcnn_desactivada_solo_carga_la_cnn():
+    assert list(cargar_modelos(ajustes("desactivada"))) == ["cnn"]
+
+
+def test_qcnn_maqueta_carga_las_dos():
+    modelos = cargar_modelos(ajustes("maqueta"))
+    assert list(modelos) == ["cnn", "qcnn"]
+    assert modelos["qcnn"].clave == "qcnn"
+
+
+def test_qcnn_real_sin_completar_falla_claro_al_iniciar():
+    with pytest.raises(NotImplementedError) as error:
+        cargar_modelos(ajustes("real"))
+    assert "app/modelos/qcnn.py" in str(error.value)
+
+
+def test_la_maqueta_cumple_lo_que_exige_el_contrato():
+    qcnn = cargar_modelos(ajustes("maqueta"))["qcnn"]
+    assert isinstance(qcnn.id, str) and qcnn.id
+    assert isinstance(qcnn.parametros, int)
+    assert 0 <= qcnn.umbral <= 1
+    probabilidades = qcnn.probabilidades(construir_procesada(8).ventanas)
+    assert probabilidades.shape == (8,)
+    assert ((probabilidades >= 0) & (probabilidades <= 1)).all()
+
+
+def test_con_dos_modelos_los_latidos_son_comparables():
+    modelos = cargar_modelos(ajustes("maqueta"))
+    procesada = construir_procesada(10)
+    resultados = armar_resultados(["cnn", "qcnn"], modelos, procesada)
+    assert resultados.cnn.estado == resultados.qcnn.estado == "ok"
+    cnn, qcnn = resultados.cnn.latidos, resultados.qcnn.latidos
+    assert [l.indice for l in cnn] == [l.indice for l in qcnn]
+    assert [l.tiempo_s for l in cnn] == [l.tiempo_s for l in qcnn]
+    assert resultados.qcnn.modelo.id == "qcnn-maqueta"
+
+
+def test_respuesta_completa_con_dos_modelos_es_valida():
+    modelos = cargar_modelos(ajustes("maqueta"))
+    procesada = construir_procesada(10)
+    inicio = time.perf_counter()
+    resultados = armar_resultados(["cnn", "qcnn"], modelos, procesada)
+    respuesta = armar_respuesta("ecg.csv", construir_senal(), procesada, resultados, inicio)
+    assert respuesta.resultados.qcnn.resumen.latidos_normales >= 0
+
+
+def test_con_la_qcnn_desactivada_se_ve_no_disponible():
+    modelos = cargar_modelos(ajustes("desactivada"))
+    resultados = armar_resultados(["cnn", "qcnn"], modelos, construir_procesada(10))
+    assert resultados.cnn.estado == "ok"
+    assert resultados.qcnn.estado == "no_disponible"
+    assert resultados.qcnn.mensaje == MENSAJE_QCNN
