@@ -1,0 +1,11 @@
+{
+  "error": {
+    "codigo": "DURACION_INSUFICIENTE",
+    "mensaje": "La señal dura 6.2 s y el mínimo es 10 s.",
+    "detalle": {
+      "duracion_s": 6.2,
+      "minimo_s": 10,
+      "maximo_s": 300
+    }
+  }
+}
