@@ -16,10 +16,10 @@ class Ajustes(BaseSettings):
         extra="ignore",
     )
 
-    api_key: str = Field(min_length=20)
+    api_key: str | None = Field(default=None, min_length=20)  # None = sin autenticación (contrato v1)
     origenes_permitidos: str = "http://localhost:5173"
     docs_habilitados: bool = True
-    modelo_simulado: bool = True
+    modelo_simulado: bool = False
     max_analisis_simultaneos: int = Field(default=2, ge=1, le=16)
     limite_peticiones_por_minuto: int = Field(default=30, ge=1, le=1000)
     hosts_permitidos: str = "localhost,127.0.0.1"

@@ -9,8 +9,8 @@ from app.main import app
 
 CLAVE = os.environ["API_KEY"]
 CABECERA = {"X-API-Key": CLAVE}
-EJEMPLO = Path(__file__).resolve().parents[2] / "Archivos" / "ejemplo_ecg.csv"
-hay_ejemplo = pytest.mark.skipif(not EJEMPLO.exists(), reason="falta Archivos/ejemplo_ecg.csv")
+EJEMPLO = Path(__file__).resolve().parents[2] / "docs" / "api" / "ejemplo_ecg.csv"
+hay_ejemplo = pytest.mark.skipif(not EJEMPLO.exists(), reason="falta docs/api/ejemplo_ecg.csv")
 
 
 @pytest.fixture()

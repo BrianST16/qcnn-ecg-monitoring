@@ -13,6 +13,8 @@ def exigir_api_key(
     clave: str | None = Depends(esquema_api_key),
     ajustes: Ajustes = Depends(get_ajustes),
 ) -> None:
+    if not ajustes.api_key:
+        return
     valida = clave is not None and secrets.compare_digest(
         clave.encode("utf-8"), ajustes.api_key.encode("utf-8")
     )
