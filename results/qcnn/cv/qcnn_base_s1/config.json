@@ -1,0 +1,25 @@
+{
+  "nombre": "qcnn_base",
+  "modelo": {
+    "n_qubits": 8,
+    "filtros": [
+      8,
+      16
+    ],
+    "kernels": [
+      7,
+      5
+    ],
+    "longitud_entrada": 288,
+    "rasgos_extra": 4
+  },
+  "entrenamiento": {
+    "tasa_aprendizaje": 0.003,
+    "tamano_lote": 256,
+    "epocas_max": 30,
+    "paciencia": 5,
+    "paciencia_lr": 2,
+    "factor_lr": 0.1,
+    "hilos": 4
+  }
+}
