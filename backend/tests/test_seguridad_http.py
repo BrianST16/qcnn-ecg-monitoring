@@ -136,7 +136,7 @@ def test_un_modelo_que_falla_no_filtra_detalles(cliente):
         parametros = 1
         umbral = 0.5
 
-        def probabilidades(self, ventanas):
+        def probabilidades(self, ventanas, rr=None):
             raise RuntimeError("dato-secreto-del-paciente")
 
     cliente.app.state.modelos["cnn"] = ModeloRoto()

@@ -19,19 +19,32 @@ from sklearn.metrics import (
 
 @torch.no_grad()
 def predecir_logits(
-    modelo: torch.nn.Module, X: np.ndarray, tamano_lote: int = 2048
+    modelo: torch.nn.Module, X: np.ndarray, tamano_lote: int = 2048, rr: np.ndarray | None = None
 ) -> torch.Tensor:
-    """Logits de la clase ANORMAL para cada latido (X: (n, 288))."""
+    """Logits de la clase ANORMAL para cada latido (X: (n, 288), rr: (n, 4) opcional).
+
+    Si el modelo no usa rasgos RR, `rr` se ignora: quien llama puede pasarlo siempre.
+    """
     modelo.eval()
     tensor = torch.from_numpy(np.ascontiguousarray(X, dtype=np.float32)).unsqueeze(1)
-    return torch.cat([modelo(tensor[i : i + tamano_lote]) for i in range(0, len(X), tamano_lote)])
+    usar_rr = rr is not None and getattr(getattr(modelo, "config", None), "rasgos_extra", 0) > 0
+    rr_t = torch.from_numpy(np.ascontiguousarray(rr, dtype=np.float32)) if usar_rr else None
+    return torch.cat(
+        [
+            modelo(tensor[i : i + tamano_lote], None if rr_t is None else rr_t[i : i + tamano_lote])
+            for i in range(0, len(X), tamano_lote)
+        ]
+    )
 
 
 def predecir_probabilidades(
-    modelo: torch.nn.Module, X: np.ndarray, tamano_lote: int = 2048
+    modelo: torch.nn.Module,
+    X: np.ndarray,
+    tamano_lote: int = 2048,
+    rr: np.ndarray | None = None,
 ) -> np.ndarray:
     """Probabilidad de la clase ANORMAL para cada latido."""
-    return torch.sigmoid(predecir_logits(modelo, X, tamano_lote)).numpy()
+    return torch.sigmoid(predecir_logits(modelo, X, tamano_lote, rr)).numpy()
 
 
 def umbral_optimo_f1(y: np.ndarray, p: np.ndarray) -> tuple[float, float]:
@@ -94,23 +107,30 @@ def medir_inferencia(
     repeticiones: int = 1000,
     calentamiento: int = 50,
     tamano_lote: int = 256,
+    rr: np.ndarray | None = None,
 ) -> dict:
     """Latencia por latido (lote de 1) y throughput (lotes de `tamano_lote`) en CPU."""
     modelo.eval()
     tensor = torch.from_numpy(np.ascontiguousarray(X, dtype=np.float32)).unsqueeze(1)
+    usar_rr = rr is not None and getattr(getattr(modelo, "config", None), "rasgos_extra", 0) > 0
+    rr_t = torch.from_numpy(np.ascontiguousarray(rr, dtype=np.float32)) if usar_rr else None
+
+    def correr(a: int, b: int) -> None:
+        modelo(tensor[a:b], None if rr_t is None else rr_t[a:b])
+
     for i in range(calentamiento):
-        modelo(tensor[i : i + 1])
+        correr(i, i + 1)
     tiempos = []
     for i in range(repeticiones):
         inicio = time.perf_counter()
-        modelo(tensor[i % len(tensor) : i % len(tensor) + 1])
+        correr(i % len(tensor), i % len(tensor) + 1)
         tiempos.append(time.perf_counter() - inicio)
     tiempos_ms = np.array(tiempos) * 1000
 
     n_lotes = max(1, min(len(tensor) // tamano_lote, 40))
     inicio = time.perf_counter()
     for i in range(n_lotes):
-        modelo(tensor[i * tamano_lote : (i + 1) * tamano_lote])
+        correr(i * tamano_lote, (i + 1) * tamano_lote)
     duracion = time.perf_counter() - inicio
     return {
         "latencia_ms_mediana": float(np.median(tiempos_ms)),

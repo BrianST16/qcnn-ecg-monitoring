@@ -17,5 +17,5 @@ class ClasificadorCNN(Clasificador):
         self._modelo, self.umbral = cargar_modelo(ruta)
         self.parametros = contar_parametros(self._modelo)
 
-    def probabilidades(self, ventanas: np.ndarray) -> np.ndarray:
-        return predecir_probabilidades(self._modelo, ventanas)
+    def probabilidades(self, ventanas: np.ndarray, rr: np.ndarray | None = None) -> np.ndarray:
+        return predecir_probabilidades(self._modelo, ventanas, rr=rr)  # ignora rr si no lo usa

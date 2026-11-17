@@ -31,9 +31,9 @@ from qcnn_ecg.evaluacion import (
     umbral_optimo_f1,
 )
 from qcnn_ecg.graficos import graficar_curvas, graficar_matriz, graficar_roc_pr
-from qcnn_ecg.modelos import CNN1D, ConfigCNN, contar_parametros
+from qcnn_ecg.modelos import CNN1D, ConfigCNN, Ensamble, contar_parametros
 
-DIR_CORRIDAS = config.DIR_RESULTADOS / "cnn"
+DIR_CORRIDAS = config.DIR_RESULTADOS / "cnn_v2"  # results/cnn/ guarda la v1 (sin RR)
 DIR_CORRIDAS_RAPIDAS = config.DIR_DATOS / "corridas_rapidas"
 
 
@@ -67,9 +67,10 @@ def ejecutar_corrida(
     conjunto = conjunto if conjunto is not None else cargar_conjunto()
     X_ent, y_ent = conjunto.subconjunto("entrenamiento")
     X_val, y_val = conjunto.subconjunto("validacion")
+    rr_ent, rr_val = conjunto.rasgos("entrenamiento"), conjunto.rasgos("validacion")
     if rapido:
         submuestra = np.random.default_rng(semilla).permutation(len(y_ent))[: len(y_ent) // 10]
-        X_ent, y_ent = X_ent[submuestra], y_ent[submuestra]
+        X_ent, y_ent, rr_ent = X_ent[submuestra], y_ent[submuestra], rr_ent[submuestra]
         cfg_ent = ConfigEntrenamiento(**{**cfg_ent.a_dict(), "epocas_max": 1})
 
     directorio = (DIR_CORRIDAS_RAPIDAS if rapido else DIR_CORRIDAS) / f"{nombre}_s{semilla}"
@@ -82,11 +83,11 @@ def ejecutar_corrida(
 
     inicio = time.perf_counter()
     modelo, historial = entrenar_modelo(
-        modelo, X_ent, y_ent, X_val, y_val, cfg_ent, semilla, registrar
+        modelo, X_ent, y_ent, X_val, y_val, cfg_ent, semilla, registrar, rr_ent, rr_val
     )
     segundos = time.perf_counter() - inicio
 
-    p_val = predecir_probabilidades(modelo, X_val)
+    p_val = predecir_probabilidades(modelo, X_val, rr=rr_val)
     umbral, _ = umbral_optimo_f1(y_val, p_val)
     simbolos_val = conjunto.simbolo[conjunto.mascara("validacion")]
     resultado = {
@@ -133,11 +134,16 @@ def ejecutar_corrida(
     return resultado
 
 
-def cargar_modelo(ruta: Path) -> tuple[CNN1D, float]:
-    """Carga un modelo guardado por ejecutar_corrida (o el modelo final)."""
+def cargar_modelo(ruta: Path) -> tuple[CNN1D | Ensamble, float]:
+    """Carga un modelo guardado por ejecutar_corrida o un ensamble de la validación cruzada."""
     guardado = torch.load(ruta, map_location="cpu", weights_only=True)
-    modelo = CNN1D(ConfigCNN.desde_dict(guardado["config_modelo"]))
-    modelo.load_state_dict(guardado["estado"])
+    cfg = ConfigCNN.desde_dict(guardado["config_modelo"])
+    estados = guardado["estados"] if "estados" in guardado else [guardado["estado"]]
+    modelos = []
+    for estado in estados:
+        modelos.append(CNN1D(cfg))
+        modelos[-1].load_state_dict(estado)
+    modelo = Ensamble(modelos) if "estados" in guardado else modelos[0]
     modelo.eval()
     return modelo, float(guardado["umbral"])
 
@@ -154,7 +160,7 @@ def evaluar_prueba(directorio: Path, conjunto: Conjunto | None = None, registrar
 
     m_prueba = conjunto.mascara("prueba")
     m_con_202 = m_prueba | conjunto.mascara("prueba_excluida")
-    p = predecir_probabilidades(modelo, conjunto.X[m_con_202])
+    p = predecir_probabilidades(modelo, conjunto.X[m_con_202], rr=conjunto.rr[m_con_202])
     y = conjunto.y[m_con_202]
     es_prueba = m_prueba[m_con_202]
 
@@ -165,7 +171,7 @@ def evaluar_prueba(directorio: Path, conjunto: Conjunto | None = None, registrar
             y[es_prueba], p[es_prueba], conjunto.simbolo[m_prueba], umbral
         ),
         "prueba_con_202": calcular_metricas(y, p, umbral),
-        "inferencia": medir_inferencia(modelo, conjunto.X[m_prueba]),
+        "inferencia": medir_inferencia(modelo, conjunto.X[m_prueba], rr=conjunto.rr[m_prueba]),
     }
     _guardar_json(resultado, directorio / "metricas_prueba.json")
     graficar_matriz(

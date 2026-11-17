@@ -16,6 +16,7 @@ def construir_procesada(n=6):
     """Resultado de procesar_senal con n latidos evaluados (el primero sin RR previo)."""
     return SenalProcesada(
         ventanas=np.zeros((n, 288)),
+        rr=np.ones((n, 4), dtype=np.float32),
         tiempos_s=np.arange(1, n + 1) * 0.8,
         rr_previo_s=np.array([np.nan] + [0.8] * (n - 1)),
         latidos_detectados=n + 1,
@@ -43,12 +44,12 @@ class ClasificadorFijo:
     def __init__(self, probabilidades):
         self.valores = np.array(probabilidades)
 
-    def probabilidades(self, ventanas):
+    def probabilidades(self, ventanas, rr=None):
         return self.valores
 
 
 class ClasificadorRoto(ClasificadorFijo):
-    def probabilidades(self, ventanas):
+    def probabilidades(self, ventanas, rr=None):
         raise RuntimeError("fallo interno con datos del paciente")
 
 

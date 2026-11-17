@@ -19,9 +19,10 @@ import torch
 from qcnn_ecg import config
 from qcnn_ecg.datos import leer_registro, registros_estudio
 from qcnn_ecg.particion import asignar_particiones, elegir_validacion
-from qcnn_ecg.preprocesamiento import etiquetar_simbolo, extraer_ventanas, preprocesar_senal
+from qcnn_ecg.pipeline import procesar_senal
+from qcnn_ecg.preprocesamiento import etiquetar_simbolo
 
-ARCHIVOS = ("X", "y", "registro", "simbolo", "muestra_r", "particion")
+ARCHIVOS = ("X", "rr", "y", "registro", "simbolo", "muestra_r", "particion")
 
 
 @dataclass
@@ -29,6 +30,7 @@ class Conjunto:
     """Latidos segmentados con sus metadatos (arrays alineados por latido)."""
 
     X: np.ndarray  # (n, 288) float32
+    rr: np.ndarray  # (n, 4) float32, rasgos de ritmo (qcnn_ecg.pipeline.rasgos_rr)
     y: np.ndarray  # (n,) int8
     registro: np.ndarray  # (n,) str
     simbolo: np.ndarray  # (n,) str
@@ -42,21 +44,26 @@ class Conjunto:
         m = self.mascara(particion)
         return self.X[m], self.y[m]
 
+    def rasgos(self, particion: str) -> np.ndarray:
+        return self.rr[self.mascara(particion)]
+
 
 def procesar_registros(nombres, directorio: Path = config.DIR_MITDB) -> dict[str, np.ndarray]:
     """Preprocesa y segmenta los registros dados (sin asignar partición)."""
-    partes = {k: [] for k in ("X", "y", "registro", "simbolo", "muestra_r")}
+    partes = {k: [] for k in ("X", "rr", "y", "registro", "simbolo", "muestra_r")}
     for nombre in nombres:
         reg = leer_registro(nombre, directorio)
-        senal = preprocesar_senal(reg.senal, reg.fs)
-        etiquetas = np.array([etiquetar_simbolo(s) for s in reg.simbolos], dtype=object)
+        es_latido = np.isin(reg.simbolos, config.SIMBOLOS_LATIDO)
+        latidos = procesar_senal(reg.senal, reg.fs, picos=reg.muestras[es_latido])
+        simbolos = reg.simbolos[es_latido][latidos.mascara]
+        etiquetas = np.array([etiquetar_simbolo(s) for s in simbolos], dtype=object)
         usar = etiquetas != None  # noqa: E711 (comparación elemento a elemento)
-        ventanas, dentro = extraer_ventanas(senal, reg.muestras[usar])
-        partes["X"].append(ventanas.astype(np.float32))
-        partes["y"].append(etiquetas[usar][dentro].astype(np.int8))
-        partes["simbolo"].append(reg.simbolos[usar][dentro].astype("<U1"))
-        partes["muestra_r"].append(reg.muestras[usar][dentro])
-        partes["registro"].append(np.full(len(ventanas), nombre, dtype="<U3"))
+        partes["X"].append(latidos.ventanas[usar].astype(np.float32))
+        partes["rr"].append(latidos.rr[usar])
+        partes["y"].append(etiquetas[usar].astype(np.int8))
+        partes["simbolo"].append(simbolos[usar].astype("<U1"))
+        partes["muestra_r"].append(latidos.picos[latidos.mascara][usar])
+        partes["registro"].append(np.full(int(usar.sum()), nombre, dtype="<U3"))
     return {k: np.concatenate(v) for k, v in partes.items()}
 
 
@@ -99,6 +106,7 @@ def _manifiesto(arrays: dict[str, np.ndarray], validacion, hashes) -> dict:
             "orden_filtro": config.ORDEN_FILTRO,
             "filtro": "Butterworth pasa-banda, filtfilt (fase cero)",
             "normalizacion": "z-score por registro",
+            "rasgos_rr": ["previo", "posterior", "local", "previo/posterior"],
             "media_ventana": config.MEDIA_VENTANA,
             "longitud_ventana": config.LONGITUD_VENTANA,
             "simbolos_normal": list(config.SIMBOLOS_NORMAL),
@@ -170,9 +178,11 @@ class CargadorLotes:
         tamano_lote: int,
         barajar: bool = False,
         semilla: int = 0,
+        rr: np.ndarray | None = None,
     ):
         self.X = torch.from_numpy(np.ascontiguousarray(X, dtype=np.float32)).unsqueeze(1)
         self.y = torch.from_numpy(y.astype(np.float32))
+        self.rr = None if rr is None else torch.from_numpy(np.ascontiguousarray(rr, np.float32))
         self.tamano_lote = tamano_lote
         self.barajar = barajar
         self.generador = torch.Generator().manual_seed(semilla)
@@ -185,4 +195,4 @@ class CargadorLotes:
         orden = torch.randperm(n, generator=self.generador) if self.barajar else torch.arange(n)
         for i in range(0, n, self.tamano_lote):
             idx = orden[i : i + self.tamano_lote]
-            yield self.X[idx], self.y[idx]
+            yield self.X[idx], self.y[idx], None if self.rr is None else self.rr[idx]

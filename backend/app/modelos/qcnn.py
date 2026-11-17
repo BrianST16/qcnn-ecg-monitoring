@@ -30,6 +30,6 @@ class ClasificadorQCNN(Clasificador):
             "La QCNN real aún no está conectada: completa ClasificadorQCNN en app/modelos/qcnn.py."
         )
 
-    def probabilidades(self, ventanas: np.ndarray) -> np.ndarray:
+    def probabilidades(self, ventanas: np.ndarray, rr: np.ndarray | None = None) -> np.ndarray:
         # TODO 2 de 2: devolver un array (n,) de probabilidades de ANORMAL.
         raise NotImplementedError

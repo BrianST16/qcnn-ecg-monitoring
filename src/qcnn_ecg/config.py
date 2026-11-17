@@ -19,7 +19,7 @@ DIR_CONFIGS = RAIZ / "configs"
 DIR_RESULTADOS = RAIZ / "results"
 DIR_MODELOS = RAIZ / "modelos_entrenados"
 
-NOMBRE_CONJUNTO = "mitdb_binario_v1"
+NOMBRE_CONJUNTO = "mitdb_binario_v2"  # v2 añade los rasgos RR (v1: solo ventanas)
 
 # ---------------------------------------------------------------------------
 # Señal y preprocesamiento
@@ -36,9 +36,15 @@ LONGITUD_VENTANA = 2 * MEDIA_VENTANA  # 288 muestras = 0.8 s
 # Etiquetas (binario: 0 = normal, 1 = anormal)
 # ---------------------------------------------------------------------------
 
+# Toda anotación que es un latido (incluye Q y los no etiquetados): el RR se calcula con todos
+SIMBOLOS_LATIDO = ("N", "L", "R", "B", "A", "a", "J", "S", "V", "r", "F", "e", "j", "n", "E", "/", "f", "Q", "?")
 SIMBOLOS_NORMAL = ("N",)
 SIMBOLOS_ANORMAL = ("L", "R", "A", "a", "J", "S", "V", "E", "F", "j", "e")
 NOMBRES_CLASES = ("NORMAL", "ANORMAL")
+
+# Rasgos de ritmo (RR) que se concatenan a la CNN: previo, posterior, local y previo/posterior
+N_RASGOS_RR = 4
+RR_VENTANA_LOCAL = 10  # latidos previos para el RR local
 
 # ---------------------------------------------------------------------------
 # Partición inter-paciente (de Chazal et al., 2004)

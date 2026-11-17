@@ -10,7 +10,7 @@ class CNNSimulada(Clasificador):
     parametros = 0
     umbral = 0.615
 
-    def probabilidades(self, ventanas: np.ndarray) -> np.ndarray:
+    def probabilidades(self, ventanas: np.ndarray, rr: np.ndarray | None = None) -> np.ndarray:
         n = len(ventanas)
         rng = np.random.default_rng(42)
         es_anormal = rng.random(n) < 0.15
@@ -27,7 +27,7 @@ class QCNNMaqueta(Clasificador):
     parametros = 0
     umbral = 0.5
 
-    def probabilidades(self, ventanas):
+    def probabilidades(self, ventanas, rr=None):
         rng = np.random.default_rng(7)
         n = len(ventanas)
         anormal = rng.random(n) < 0.20

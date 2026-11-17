@@ -15,5 +15,5 @@ class Clasificador(ABC):
     metricas_prueba: dict | None = None
 
     @abstractmethod
-    def probabilidades(self, ventanas: np.ndarray) -> np.ndarray:
-        """Recibe (n, 288) y devuelve (n,) con la probabilidad de ANORMAL (0 a 1)."""
+    def probabilidades(self, ventanas: np.ndarray, rr: np.ndarray | None = None) -> np.ndarray:
+        """Recibe (n, 288) y los rasgos RR (n, 4) y devuelve (n,) con la probabilidad de ANORMAL (0 a 1)."""

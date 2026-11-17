@@ -46,7 +46,7 @@ def interpretar_modelos(texto: str) -> list[str]:
 def ejecutar_modelo(clasificador: Clasificador, procesada: SenalProcesada) -> ResultadoModelo:
     """Clasifica todos los latidos con un modelo y arma su bloque de la respuesta."""
     inicio = time.perf_counter()
-    probabilidades = np.asarray(clasificador.probabilidades(procesada.ventanas), dtype=float)
+    probabilidades = np.asarray(clasificador.probabilidades(procesada.ventanas, procesada.rr), dtype=float)
     tiempo_ms = (time.perf_counter() - inicio) * 1000  # solo la inferencia del modelo
 
     n = procesada.latidos_evaluados
