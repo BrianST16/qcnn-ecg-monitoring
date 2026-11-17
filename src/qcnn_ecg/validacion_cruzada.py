@@ -43,10 +43,12 @@ def _guardar_json(datos: dict, ruta: Path) -> None:
     ruta.write_text(json.dumps(datos, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
 
-def ejecutar_cv(ruta_config: Path, semilla: int, conjunto: Conjunto, registrar=print) -> dict:
+def ejecutar_cv(
+    ruta_config: Path, semilla: int, conjunto: Conjunto, registrar=print, dir_cv: Path = DIR_CV
+) -> dict:
     """Validación cruzada de 5 pliegues por paciente en DS1 para una variante."""
     nombre, cfg_modelo, cfg_ent = leer_config(ruta_config)
-    directorio = DIR_CV / f"{nombre}_s{semilla}"
+    directorio = dir_cv / f"{nombre}_s{semilla}"
     directorio.mkdir(parents=True, exist_ok=True)
 
     ds1 = mascara_ds1(conjunto)
