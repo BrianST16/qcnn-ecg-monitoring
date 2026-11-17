@@ -21,7 +21,7 @@ import torch
 
 from qcnn_ecg.conjunto import Conjunto
 from qcnn_ecg.entrenamiento import entrenar_modelo, fijar_semillas
-from qcnn_ecg.entrenar import DIR_CORRIDAS, leer_config
+from qcnn_ecg.entrenar import DIR_CORRIDAS, construir_modelo, leer_config
 from qcnn_ecg.evaluacion import (
     acierto_por_simbolo,
     calcular_metricas,
@@ -29,7 +29,7 @@ from qcnn_ecg.evaluacion import (
     umbral_optimo_f1,
 )
 from qcnn_ecg.graficos import graficar_curvas, graficar_matriz
-from qcnn_ecg.modelos import CNN1D, contar_parametros
+from qcnn_ecg.modelos import contar_parametros
 from qcnn_ecg.particion import pliegues_ds1
 
 DIR_CV = DIR_CORRIDAS / "cv"
@@ -62,7 +62,7 @@ def ejecutar_cv(ruta_config: Path, semilla: int, conjunto: Conjunto, registrar=p
         registrar(f"[{nombre} | s{semilla} | pliegue {k}] validación: {', '.join(regs_val)}")
         fijar_semillas(semilla)
         modelo, historial = entrenar_modelo(
-            CNN1D(cfg_modelo),
+            construir_modelo(cfg_modelo),
             X[~val],
             y[~val],
             X[val],
@@ -98,7 +98,7 @@ def ejecutar_cv(ruta_config: Path, semilla: int, conjunto: Conjunto, registrar=p
     resultado = {
         "nombre": nombre,
         "semilla": semilla,
-        "parametros": contar_parametros(CNN1D(cfg_modelo)),
+        "parametros": contar_parametros(construir_modelo(cfg_modelo)),
         "minutos": (time.perf_counter() - inicio) / 60,
         "umbral_oof": umbral,
         "mejor_epoca_mediana": float(np.median([p["mejor_epoca"] for p in por_pliegue])),

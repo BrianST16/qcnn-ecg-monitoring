@@ -1,0 +1,17 @@
+# QCNN híbrida: front-end Conv1d (288 -> 8 ángulos) + circuito QCNN de 8 qubits + RR por vía clásica.
+nombre = "qcnn_base"
+
+[modelo]
+n_qubits = 8
+filtros = [8, 16]
+kernels = [7, 5]
+rasgos_extra = 4
+
+[entrenamiento]
+tasa_aprendizaje = 3e-3
+tamano_lote = 256
+epocas_max = 30
+paciencia = 5
+paciencia_lr = 2
+factor_lr = 0.1
+hilos = 4

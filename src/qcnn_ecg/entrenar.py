@@ -37,11 +37,28 @@ DIR_CORRIDAS = config.DIR_RESULTADOS / "cnn_v2"  # results/cnn/ guarda la v1 (si
 DIR_CORRIDAS_RAPIDAS = config.DIR_DATOS / "corridas_rapidas"
 
 
+def config_desde_dict(datos: dict):
+    """ConfigQCNN si trae `n_qubits`; si no, ConfigCNN. (qiskit solo se importa para la QCNN.)"""
+    if "n_qubits" in datos:
+        from qcnn_ecg.modelos.qcnn import ConfigQCNN
+
+        return ConfigQCNN.desde_dict(datos)
+    return ConfigCNN.desde_dict(datos)
+
+
+def construir_modelo(cfg) -> torch.nn.Module:
+    if isinstance(cfg, ConfigCNN):
+        return CNN1D(cfg)
+    from qcnn_ecg.modelos.qcnn import QCNN
+
+    return QCNN(cfg)
+
+
 def leer_config(ruta: Path) -> tuple[str, ConfigCNN, ConfigEntrenamiento]:
     datos = tomllib.loads(Path(ruta).read_text(encoding="utf-8"))
     return (
         datos["nombre"],
-        ConfigCNN.desde_dict(datos["modelo"]),
+        config_desde_dict(datos["modelo"]),
         ConfigEntrenamiento(**datos["entrenamiento"]),
     )
 
@@ -77,7 +94,7 @@ def ejecutar_corrida(
     directorio.mkdir(parents=True, exist_ok=True)
 
     fijar_semillas(semilla)
-    modelo = CNN1D(cfg_modelo)
+    modelo = construir_modelo(cfg_modelo)
     parametros = contar_parametros(modelo)
     registrar(f"[{nombre} | semilla {semilla}] {parametros:,} parámetros, {len(y_ent):,} latidos")
 
@@ -134,14 +151,14 @@ def ejecutar_corrida(
     return resultado
 
 
-def cargar_modelo(ruta: Path) -> tuple[CNN1D | Ensamble, float]:
+def cargar_modelo(ruta: Path) -> tuple[torch.nn.Module, float]:
     """Carga un modelo guardado por ejecutar_corrida o un ensamble de la validación cruzada."""
     guardado = torch.load(ruta, map_location="cpu", weights_only=True)
-    cfg = ConfigCNN.desde_dict(guardado["config_modelo"])
+    cfg = config_desde_dict(guardado["config_modelo"])
     estados = guardado["estados"] if "estados" in guardado else [guardado["estado"]]
     modelos = []
     for estado in estados:
-        modelos.append(CNN1D(cfg))
+        modelos.append(construir_modelo(cfg))
         modelos[-1].load_state_dict(estado)
     modelo = Ensamble(modelos) if "estados" in guardado else modelos[0]
     modelo.eval()

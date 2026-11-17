@@ -6,6 +6,8 @@ de PyTorch (gradiente exacto por autograd en una pasada); `crear_qnn` (Estimator
 No se importa desde `modelos/__init__.py` para que cargar la CNN no cargue qiskit.
 """
 
+from dataclasses import asdict, dataclass
+
 import numpy as np
 import torch
 from qiskit import QuantumCircuit
@@ -15,6 +17,8 @@ from qiskit.quantum_info import SparsePauliOp
 from qiskit_machine_learning.connectors import TorchConnector
 from qiskit_machine_learning.neural_networks import EstimatorQNN
 from torch import nn
+
+from qcnn_ecg.config import LONGITUD_VENTANA
 
 
 def _conv(p) -> QuantumCircuit:
@@ -97,7 +101,7 @@ class QNNTorch(nn.Module):
     Entrada (lote, n_qubits) -> <Z> del qubit restante, (lote, 1). Estado exacto, sin ruido.
     """
 
-    def __init__(self, n_qubits: int = 8, semilla: int = 0):
+    def __init__(self, n_qubits: int = 8, semilla: int | None = None):
         super().__init__()
         qc, entradas, pesos, self.salida = circuito_qcnn(n_qubits)
         self.n = n_qubits
@@ -108,7 +112,10 @@ class QNNTorch(nn.Module):
             q = tuple(qc.find_bit(b).index for b in ins.qubits)
             ang = ins.operation.params[0] if ins.operation.params else None
             self.ops.append((ins.operation.name, q, ix[ang] if ang in ix else ang))
-        self.weight = nn.Parameter(torch.tensor(_pesos_iniciales(len(pesos), semilla)).float())
+        # semilla None: usa la semilla global de torch (así CV y ensamble varían por pliegue)
+        n_w = len(pesos)
+        w = torch.randn(n_w) * 0.1 if semilla is None else _pesos_iniciales(n_w, semilla)
+        self.weight = nn.Parameter(torch.as_tensor(w).float())
 
     def _eje(self, q: int) -> int:  # qiskit: qubit 0 = bit menos significativo
         return 1 + (self.n - 1 - q)
@@ -152,3 +159,61 @@ class QNNTorch(nn.Module):
         m = s.movedim((control, objetivo), (-2, -1))
         m = torch.stack([m[..., 0, :], m[..., 1, :].flip(-1)], dim=-2)
         return m.movedim((-2, -1), (control, objetivo))
+
+
+@dataclass(frozen=True)
+class ConfigQCNN:
+    n_qubits: int = 8
+    filtros: tuple[int, int] = (8, 16)  # front-end clásico: 2 Conv1d
+    kernels: tuple[int, int] = (7, 5)
+    longitud_entrada: int = LONGITUD_VENTANA
+    rasgos_extra: int = 0  # rasgos RR: entran por una capa lineal sumada al logit
+
+    @classmethod
+    def desde_dict(cls, datos: dict) -> "ConfigQCNN":
+        return cls(**{k: tuple(v) if isinstance(v, list) else v for k, v in datos.items()})
+
+    def a_dict(self) -> dict:
+        return asdict(self)
+
+
+class QCNN(nn.Module):
+    """Front-end convolucional -> n_qubits ángulos en [0, pi] -> circuito QCNN -> logit.
+
+    Misma interfaz que CNN1D: forward(x (lote, 1, 288), rr opcional) -> logits (lote,).
+    """
+
+    def __init__(self, config: ConfigQCNN | None = None):
+        super().__init__()
+        self.config = c = config if config is not None else ConfigQCNN()
+        f1, f2 = c.filtros
+        self.frontal = nn.Sequential(
+            nn.Conv1d(1, f1, c.kernels[0], padding=c.kernels[0] // 2),
+            nn.BatchNorm1d(f1),
+            nn.ReLU(),
+            nn.MaxPool1d(4),
+            nn.Conv1d(f1, f2, c.kernels[1], padding=c.kernels[1] // 2),
+            nn.BatchNorm1d(f2),
+            nn.ReLU(),
+            nn.AdaptiveAvgPool1d(1),
+            nn.Flatten(),
+            nn.Linear(f2, c.n_qubits),
+        )
+        self.circuito = QNNTorch(c.n_qubits)
+        self.escala = nn.Parameter(torch.tensor(1.0))  # <Z> in [-1, 1] -> logit
+        self.sesgo = nn.Parameter(torch.tensor(0.0))
+        self.rr = nn.Linear(c.rasgos_extra, 1, bias=False) if c.rasgos_extra else None
+
+    def parametros_por_tipo(self) -> dict[str, int]:
+        cuanticos = self.circuito.weight.numel()
+        total = sum(p.numel() for p in self.parameters())
+        return {"clasicos": total - cuanticos, "cuanticos": cuanticos}
+
+    def forward(self, x: torch.Tensor, rr: torch.Tensor | None = None) -> torch.Tensor:
+        angulos = torch.pi * torch.sigmoid(self.frontal(x))
+        logit = self.escala * self.circuito(angulos).squeeze(-1) + self.sesgo
+        if self.rr is not None:
+            if rr is None:
+                raise ValueError("Este modelo necesita los rasgos RR (rr)")
+            logit = logit + self.rr(rr).squeeze(-1)
+        return logit
