@@ -1,0 +1,53 @@
+{
+  "variante": "qcnn_base",
+  "semilla": 1,
+  "ensamble_de": 5,
+  "criterio": "mayor F1 OOF entre las semillas 0, 1 y 2",
+  "umbral": 0.28057149052619934,
+  "parametros_por_modelo": 928,
+  "conjunto": "mitdb_binario_v2",
+  "cv_oof": {
+    "n": 50990,
+    "umbral": 0.28057149052619934,
+    "exactitud": 0.7530692292606394,
+    "precision": 0.5079995923774585,
+    "sensibilidad": 0.7725687717938784,
+    "especificidad": 0.7464618616253118,
+    "f1": 0.6129537979158342,
+    "f1_macro": 0.7158276455489407,
+    "auc_roc": 0.7517458048349913,
+    "auc_pr": 0.5325385783433878,
+    "matriz_confusion": [
+      [
+        28429,
+        9656
+      ],
+      [
+        2935,
+        9970
+      ]
+    ]
+  },
+  "prueba": {
+    "n": 47548,
+    "umbral": 0.28057149052619934,
+    "exactitud": 0.737822831664844,
+    "precision": 0.5158225050826483,
+    "sensibilidad": 0.8853739948414505,
+    "especificidad": 0.6812256299831229,
+    "f1": 0.6518655049151028,
+    "f1_macro": 0.7208018659375136,
+    "auc_roc": 0.8789720262799218,
+    "auc_pr": 0.7527342700612745,
+    "matriz_confusion": [
+      [
+        23411,
+        10955
+      ],
+      [
+        1511,
+        11671
+      ]
+    ]
+  }
+}

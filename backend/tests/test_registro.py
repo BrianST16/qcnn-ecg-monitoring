@@ -2,6 +2,8 @@ import time
 from types import SimpleNamespace
 
 import pytest
+import torch
+from qcnn_ecg.modelos.qcnn import QCNN, ConfigQCNN
 
 from app.analisis import MENSAJE_QCNN, armar_resultados, armar_respuesta
 from app.modelos.registro import cargar_modelos
@@ -22,10 +24,21 @@ def test_qcnn_maqueta_carga_las_dos():
     assert modelos["qcnn"].clave == "qcnn"
 
 
-def test_qcnn_real_sin_completar_falla_claro_al_iniciar():
-    with pytest.raises(NotImplementedError) as error:
-        cargar_modelos(ajustes("real"))
-    assert "app/modelos/qcnn.py" in str(error.value)
+def test_qcnn_real_carga_el_ensamble_y_cumple_el_contrato(tmp_path):
+    cfg = ConfigQCNN(rasgos_extra=4)
+    ruta = tmp_path / "qcnn.pt"
+    torch.save(
+        {"estados": [QCNN(cfg).state_dict() for _ in range(2)], "config_modelo": cfg.a_dict(), "umbral": 0.4},
+        ruta,
+    )
+    ajustes_real = ajustes("real")
+    ajustes_real.ruta_modelo_qcnn = ruta
+    qcnn = cargar_modelos(ajustes_real)["qcnn"]
+    assert qcnn.clave == "qcnn" and qcnn.umbral == pytest.approx(0.4)
+    assert qcnn.parametros == 2 * sum(p.numel() for p in QCNN(cfg).parameters())
+    procesada = construir_procesada(6)
+    p = qcnn.probabilidades(procesada.ventanas, procesada.rr)
+    assert p.shape == (6,) and ((p >= 0) & (p <= 1)).all()
 
 
 def test_la_maqueta_cumple_lo_que_exige_el_contrato():
