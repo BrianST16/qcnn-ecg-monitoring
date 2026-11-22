@@ -1,7 +1,7 @@
 # Contrato de la API: análisis de ECG con CNN y QCNN
 
 **Proyecto:** Comparación de CNN y QCNN para clasificación de señales ECG (UdeA, 2026-2)
-**Versión del contrato:** v1 (borrador para el Ciclo 3)
+**Versión del contrato:** v1.1 (Ciclo 3: CNN y QCNN integradas). Cambios frente a v1: la QCNN está activa, `GET /modelos` trae `entrenado_con`, `metricas_prueba` y el nuevo campo `circuito`, y el `umbral` va redondeado a 4 decimales. Todo cambio es aditivo: un cliente de v1 sigue funcionando.
 **Para:** el equipo que construye el backend (FastAPI) y el frontend (React)
 
 > ⚠️ El sistema es académico. Toda respuesta y toda pantalla deben mostrar: *"Resultado experimental con fines académicos. No constituye un diagnóstico médico."*
@@ -13,7 +13,7 @@
 1. El usuario sube un archivo con su ECG (una derivación, en mV).
 2. React lee el archivo **localmente** y grafica la señal de inmediato, sin esperar al backend.
 3. React envía el archivo al backend (`POST /api/v1/analisis`).
-4. El backend detecta cada latido, lo recorta y lo clasifica como **NORMAL** o **ANORMAL** con cada modelo: hoy la CNN; la QCNN llega en el Ciclo 3.
+4. El backend detecta cada latido, lo recorta y lo clasifica como **NORMAL** o **ANORMAL** con cada modelo: la CNN 1-D y la QCNN híbrida (circuito cuántico simulado).
 5. La respuesta trae un **resumen** y el **resultado de cada latido** con su tiempo en segundos. React usa ese tiempo para marcar los latidos sobre el gráfico.
 
 ```
@@ -180,7 +180,7 @@ Ejemplo **real** para `ejemplo_ecg.csv`: sale de ejecutar el modelo entrenado so
         "parametros": 11265,
         "umbral": 0.615
       },
-      "tiempo_inferencia_ms": 11.6,
+      "tiempo_inferencia_ms": 9.1,
       "resumen": {
         "latidos_normales": 43,
         "latidos_anormales": 8,
@@ -194,15 +194,28 @@ Ejemplo **real** para `ejemplo_ecg.csv`: sale de ejecutar el modelo entrenado so
       ]
     },
     "qcnn": {
-      "estado": "no_disponible",
-      "mensaje": "La QCNN se integrará en el Ciclo 3 del proyecto.",
-      "modelo": null,
-      "tiempo_inferencia_ms": null,
-      "resumen": null,
-      "latidos": null
+      "estado": "ok",
+      "modelo": {
+        "id": "qcnn-hibrida-v1",
+        "nombre": "QCNN (simulada)",
+        "parametros": 4640,
+        "umbral": 0.5036
+      },
+      "tiempo_inferencia_ms": 150.1,
+      "resumen": {
+        "latidos_normales": 42,
+        "latidos_anormales": 9,
+        "porcentaje_anormal": 17.6
+      },
+      "latidos": [
+        { "indice": 4, "tiempo_s": 3.108, "probabilidad_anormal": 0.3431, "clase": "NORMAL",  "rr_previo_s": 0.581 },
+        { "indice": 5, "tiempo_s": 3.697, "probabilidad_anormal": 0.4631, "clase": "NORMAL",  "rr_previo_s": 0.589 },
+        { "indice": 6, "tiempo_s": 4.133, "probabilidad_anormal": 0.2297, "clase": "NORMAL",  "rr_previo_s": 0.436 },
+        { "indice": 7, "tiempo_s": 4.758, "probabilidad_anormal": 0.9417, "clase": "ANORMAL", "rr_previo_s": 0.625 }
+      ]
     }
   },
-  "tiempo_total_ms": 143.2
+  "tiempo_total_ms": 211.2
 }
 ```
 
@@ -231,7 +244,7 @@ Ejemplo **real** para `ejemplo_ecg.csv`: sale de ejecutar el modelo entrenado so
 | `latidos[].clase` | `"NORMAL"` · `"ANORMAL"` | `probabilidad_anormal >= umbral` |
 | `latidos[].rr_previo_s` | float o `null` | Tiempo desde el latido anterior (`null` en el primero) |
 
-**Sobre los modelos:** las claves de `resultados` son siempre `cnn` y `qcnn`. Cuando la QCNN exista, su bloque tendrá la misma forma que el de la CNN y el **mismo** `indice`/`tiempo_s` por latido, de modo que el frontend pueda compararlos latido a latido.
+**Sobre los modelos:** las claves de `resultados` son siempre `cnn` y `qcnn`. Los dos bloques tienen la misma forma y el **mismo** `indice`/`tiempo_s` por latido, de modo que el frontend pueda compararlos latido a latido. En el ejemplo, el latido 5 (3.697 s) es normal según las anotaciones: la CNN lo marca ANORMAL (0.63) y la QCNN NORMAL (0.46). `parametros` es la suma de los modelos del ensamble (QCNN: 5 × 928).
 
 ### 3.3 Errores
 
@@ -269,18 +282,27 @@ Todos los errores tienen la misma forma (`ejemplo_error.json`):
       "disponible": true,
       "parametros": 11265,
       "umbral": 0.615,
-      "entrenado_con": "MIT-BIH, DS1 (22 pacientes)",
-      "metricas_prueba": { "f1": 0.61, "exactitud": 0.79, "auc_roc": 0.84, "pacientes": 21 }
+      "entrenado_con": "MIT-BIH, DS1 (22 pacientes); modelo único, umbral por CV de 5 pliegues",
+      "metricas_prueba": { "f1": 0.5521, "exactitud": 0.8133, "auc_roc": 0.8131, "pacientes": 21 },
+      "circuito": null
     },
     {
-      "id": null,
+      "id": "qcnn-hibrida-v1",
       "clave": "qcnn",
       "nombre": "QCNN (simulada)",
-      "disponible": false,
-      "parametros": null,
-      "umbral": null,
-      "entrenado_con": null,
-      "metricas_prueba": null
+      "disponible": true,
+      "parametros": 4640,
+      "umbral": 0.5036,
+      "entrenado_con": "MIT-BIH, DS1 (22 pacientes); ensamble de 5, umbral por CV anidada",
+      "metricas_prueba": { "f1": 0.6212, "exactitud": 0.8245, "auc_roc": 0.879, "pacientes": 21 },
+      "circuito": {
+        "parametros_cuanticos": 18,
+        "ancho": 8,
+        "profundidad": 50,
+        "compuertas_1q": 101,
+        "compuertas_2q": 53,
+        "compuertas_2q_conectividad_lineal": 83
+      }
     }
   ]
 }
@@ -289,8 +311,10 @@ Todos los errores tienen la misma forma (`ejemplo_error.json`):
 ### 3.5 `GET /api/v1/salud`
 
 ```json
-{ "estado": "ok", "modelos_cargados": ["cnn"], "version_api": "1.0.0" }
+{ "estado": "ok", "modelos_cargados": ["cnn", "qcnn"], "version_api": "1.1.0" }
 ```
+
+`metricas_prueba` son las del modelo desplegado en DS2 sin el registro 202 (21 pacientes nunca vistos). `circuito` (solo QCNN, `null` en la CNN) describe el costo del circuito cuántico: `ancho` = qubits, `profundidad` = capas de compuertas en el camino crítico, `compuertas_1q`/`compuertas_2q` del circuito lógico y `compuertas_2q_conectividad_lineal` = CNOT necesarias si los qubits solo se conectan en línea, como en muchos procesadores reales. Si la QCNN está desactivada en el servidor, su ficha llega con `disponible: false` y el resto en `null`.
 
 ---
 
@@ -308,12 +332,12 @@ Todos los errores tienen la misma forma (`ejemplo_error.json`):
 | 6. Clasificar | cargar el modelo **una vez al iniciar la app**, no en cada petición | `entrenar.cargar_modelo("modelos_entrenados/cnn1d_final.pt")` y `evaluacion.predecir_probabilidades` |
 | 7. Etiquetar | `clase = "ANORMAL" if p >= umbral else "NORMAL"`; el umbral viene dentro del `.pt` | — |
 
-- **Rendimiento medido** en un portátil i7-8565U (solo CPU) con el ejemplo de 30 s: 52 latidos, inferencia de 12 ms, petición completa de unos 140 ms. Para 5 min se espera menos de 1 s, así que no hace falta procesamiento asíncrono.
+- **Rendimiento medido** en un portátil i5-1145G7 (solo CPU, 4 hilos) con los dos modelos: el ejemplo de 30 s tarda unos 0.21 s (CNN 9 ms, QCNN 150 ms); 5 min del registro 233 (516 latidos) tardan entre 0.87 y 0.94 s (CNN 28 ms, QCNN 349 ms). Cabe en el segundo prometido, sin procesamiento asíncrono, pero con poco margen: la QCNN simulada es la que más tarda.
 - **Concurrencia:** PyTorch usa varios hilos. Fijen `torch.set_num_threads(...)` según el servidor y ejecuten la inferencia en un threadpool (endpoint `def`, no `async def`, o `run_in_threadpool`).
 - **CORS:** habilitar el origen del frontend (por ejemplo, `http://localhost:5173` con Vite).
 - **Esquemas:** definan modelos Pydantic a partir de la sección 3.2; así OpenAPI (`/docs`) queda documentado solo.
 - **Privacidad:** no guarden el archivo en disco después de responder.
-- **Verificación cruzada:** al ejecutar su backend con `ejemplo_ecg.csv`, deberían obtener los mismos 52 latidos detectados y 8 anormales que `ejemplo_respuesta.json`. Puede haber diferencias mínimas en las probabilidades (cuarto decimal).
+- **Verificación cruzada:** al ejecutar su backend con `ejemplo_ecg.csv`, deberían obtener los mismos 52 latidos detectados, 8 anormales de la CNN y 9 de la QCNN que `ejemplo_respuesta.json`. Puede haber diferencias mínimas en las probabilidades (cuarto decimal).
 
 ## 5. Notas para el frontend (React)
 
@@ -323,7 +347,7 @@ Todos los errores tienen la misma forma (`ejemplo_error.json`):
   - Librerías que manejan bien muchos puntos: **uPlot**, **Plotly** (`scattergl`) o **Recharts** con submuestreo previo.
   - Eje X: `tiempo_s`. Eje Y: `mlii_mv`. La convención clínica dibuja una cuadrícula de 0.2 s × 0.5 mV.
 - **Marcar latidos:** por cada elemento de `resultados.cnn.latidos`, un punto o línea vertical en `x = tiempo_s`, verde si es `NORMAL` y rojo si es `ANORMAL`, con un tooltip con `probabilidad_anormal` y `rr_previo_s`.
-- **Comparación CNN / QCNN:** dos tarjetas con el `resumen` y el `tiempo_inferencia_ms` de cada modelo. Si `estado === "no_disponible"`, mostrar `mensaje` en la tarjeta de la QCNN. Opcional: resaltar los latidos donde los dos modelos no coinciden (mismo `indice`, distinta `clase`).
+- **Comparación CNN / QCNN:** dos tarjetas con el `resumen` y el `tiempo_inferencia_ms` de cada modelo. Si `estado === "no_disponible"`, mostrar `mensaje` en la tarjeta de la QCNN. Para la pantalla de comparación, `GET /modelos` da las métricas de prueba de cada modelo y el costo del circuito de la QCNN (`circuito`). Opcional: resaltar los latidos donde los dos modelos no coinciden (mismo `indice`, distinta `clase`).
 - **Advertencia:** mostrar siempre `advertencia`, en un lugar visible.
 - **Errores:** mostrar `error.mensaje`; usar `error.codigo` si hace falta lógica (por ejemplo, resaltar el campo del archivo).
 
@@ -339,7 +363,12 @@ Al comparar `ejemplo_respuesta.json` con las anotaciones de los cardiólogos par
   - Marcó como anormal **1 latido normal** (3.70 s, probabilidad 0.63).
   - No detectó **3 ventriculares** y **1 de fusión** (probabilidades de 0.23 a 0.53).
 
-Esto es consistente con el desempeño medido del modelo en pacientes nuevos (F1 ≈ 0.61; ver `results/cnn/resumen.md` en el repo). La interfaz debe presentar el resultado como experimental.
+- La QCNN clasificó bien **49 de 51**:
+  - Detectó **8 de 10** ventriculares y el latido de fusión.
+  - No marcó ningún latido normal como anormal (incluido el de 3.70 s: 0.46).
+  - No detectó **2 ventriculares**.
+
+Un fragmento de 30 s de un solo paciente no permite decir que un modelo sea mejor: en los 21 pacientes de prueba los dos tienen un desempeño comparable (F1 ≈ 0.55–0.62, AUC-ROC ≈ 0.81–0.88; ver `docs/articulo/articulo.md` y `results/` en el repo). La interfaz debe presentar el resultado como experimental.
 
 ## 7. Archivos que acompañan este documento
 
@@ -347,7 +376,7 @@ Esto es consistente con el desempeño medido del modelo en pacientes nuevos (F1 
 | :--- | :--- |
 | `contrato_api.md` | Este documento |
 | `ejemplo_ecg.csv` | Archivo de entrada válido: 30 s reales de MIT-BIH a 360 Hz |
-| `ejemplo_respuesta.json` | Respuesta completa (51 latidos) generada con el modelo real a partir de `ejemplo_ecg.csv` |
+| `ejemplo_respuesta.json` | Respuesta completa (51 latidos, CNN y QCNN) generada con los modelos reales a partir de `ejemplo_ecg.csv` |
 | `ejemplo_error.json` | Ejemplo de respuesta de error |
 
 **Origen de los datos de ejemplo:** MIT-BIH Arrhythmia Database (Moody & Mark, 2001), PhysioNet, licencia Open Data Commons Attribution v1.0. Si el ejemplo se publica, hay que citar la fuente.

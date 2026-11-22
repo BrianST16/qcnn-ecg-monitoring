@@ -37,7 +37,7 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(
     title="API de análisis de ECG (CNN y QCNN)",
-    version="1.0.0",
+    version="1.1.0",
     lifespan=lifespan,
     docs_url="/docs" if ajustes.docs_habilitados else None,
     redoc_url="/redoc" if ajustes.docs_habilitados else None,
@@ -68,7 +68,7 @@ def limitar_peticiones(request: Request) -> None:
 @app.get("/api/v1/salud", response_model=RespuestaSalud)
 def salud(request: Request):
     modelos = request.app.state.modelos
-    return {"estado": "ok", "modelos_cargados": list(modelos), "version_api": "1.0.0"}
+    return {"estado": "ok", "modelos_cargados": list(modelos), "version_api": "1.1.0"}
 
 
 MODELOS_CONOCIDOS = (("cnn", "CNN 1-D"), ("qcnn", "QCNN (simulada)"))
@@ -95,8 +95,9 @@ def listar_modelos(request: Request):
             fichas.append(
                 FichaModelo(
                     id=m.id, clave=clave, nombre=m.nombre, disponible=True,
-                    parametros=m.parametros, umbral=m.umbral,
+                    parametros=m.parametros, umbral=round(m.umbral, 4),
                     entrenado_con=m.entrenado_con, metricas_prueba=m.metricas_prueba,
+                    circuito=m.circuito,
                 )
             )
     return RespuestaModelos(modelos=fichas)

@@ -13,6 +13,7 @@ class Clasificador(ABC):
     umbral: float
     entrenado_con: str | None = None
     metricas_prueba: dict | None = None
+    circuito: dict | None = None  # solo la QCNN: costo del circuito
 
     @abstractmethod
     def probabilidades(self, ventanas: np.ndarray, rr: np.ndarray | None = None) -> np.ndarray:

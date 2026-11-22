@@ -106,7 +106,7 @@ def test_qcnn_no_disponible_con_el_mensaje_del_contrato():
     cargados = {"cnn": ClasificadorFijo([0.1] * 6)}
     r = armar_resultados(["cnn", "qcnn"], cargados, construir_procesada(6))
     assert r.qcnn.estado == "no_disponible"
-    assert r.qcnn.mensaje == "La QCNN se integrará en el Ciclo 3 del proyecto."
+    assert r.qcnn.mensaje == "La QCNN no está activa en este servidor."
     assert r.qcnn.modelo is None and r.qcnn.latidos is None
 
 

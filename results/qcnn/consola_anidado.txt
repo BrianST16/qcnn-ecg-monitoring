@@ -1,0 +1,775 @@
+  modelo 1/4 listo (0.0 min)
+  modelo 2/4 listo (0.0 min)
+  modelo 3/4 listo (0.0 min)
+  modelo 4/4 listo (0.0 min)
+[s1] externo 1 (fuera: 112, 124, 201, 209), val 0
+  época  1 | pérdida ent 0.7436 val 0.9621 | F1 val 0.4413 (umbral 0.23) | 26.2 s
+  época  2 | pérdida ent 0.3888 val 0.7781 | F1 val 0.7367 (umbral 0.25) | 46.3 s
+  época  3 | pérdida ent 0.2998 val 0.5516 | F1 val 0.7659 (umbral 0.33) | 50.7 s
+  época  4 | pérdida ent 0.2532 val 0.5536 | F1 val 0.7387 (umbral 0.33) | 44.8 s
+  época  5 | pérdida ent 0.2174 val 0.4713 | F1 val 0.7860 (umbral 0.67) | 37.9 s
+  época  6 | pérdida ent 0.2006 val 0.8230 | F1 val 0.6791 (umbral 0.14) | 28.5 s
+  época  7 | pérdida ent 0.1805 val 0.4589 | F1 val 0.7864 (umbral 0.87) | 29.1 s
+  época  8 | pérdida ent 0.1694 val 0.6045 | F1 val 0.7974 (umbral 0.94) | 31.1 s
+  época  9 | pérdida ent 0.1486 val 0.4833 | F1 val 0.7784 (umbral 0.79) | 33.7 s
+  época 10 | pérdida ent 0.1445 val 0.4955 | F1 val 0.7816 (umbral 0.91) | 42.4 s
+  época 11 | pérdida ent 0.1417 val 0.4901 | F1 val 0.7732 (umbral 0.86) | 30.5 s
+  época 12 | pérdida ent 0.1401 val 0.4964 | F1 val 0.7689 (umbral 0.84) | 26.3 s
+  época 13 | pérdida ent 0.1387 val 0.4923 | F1 val 0.7622 (umbral 0.75) | 51.4 s
+  época 14 | pérdida ent 0.1383 val 0.4961 | F1 val 0.7646 (umbral 0.81) | 37.7 s
+  parada temprana en la época 14
+  modelo 1/4 listo (8.8 min)
+[s1] externo 1 (fuera: 112, 124, 201, 209), val 2
+  época  1 | pérdida ent 0.7742 val 0.7926 | F1 val 0.9937 (umbral 0.30) | 40.5 s
+  época  2 | pérdida ent 0.4264 val 0.2881 | F1 val 0.9900 (umbral 0.68) | 31.4 s
+  época  3 | pérdida ent 0.3665 val 0.3826 | F1 val 0.9906 (umbral 0.28) | 39.3 s
+  época  4 | pérdida ent 0.3283 val 0.3659 | F1 val 0.9790 (umbral 0.42) | 35.8 s
+  época  5 | pérdida ent 0.3030 val 0.3788 | F1 val 0.9517 (umbral 0.78) | 35.7 s
+  época  6 | pérdida ent 0.2900 val 0.4272 | F1 val 0.9125 (umbral 0.85) | 45.4 s
+  época  7 | pérdida ent 0.2720 val 0.6735 | F1 val 0.9635 (umbral 0.26) | 37.3 s
+  época  8 | pérdida ent 0.2687 val 0.5193 | F1 val 0.9579 (umbral 0.36) | 35.9 s
+  parada temprana en la época 8
+  modelo 2/4 listo (13.8 min)
+[s1] externo 1 (fuera: 112, 124, 201, 209), val 3
+  época  1 | pérdida ent 0.7837 val 0.5053 | F1 val 0.8720 (umbral 0.72) | 32.6 s
+  época  2 | pérdida ent 0.3814 val 0.5059 | F1 val 0.8517 (umbral 0.84) | 34.6 s
+  época  3 | pérdida ent 0.3105 val 0.6391 | F1 val 0.7532 (umbral 0.88) | 37.9 s
+  época  4 | pérdida ent 0.2697 val 0.5490 | F1 val 0.8115 (umbral 0.90) | 29.3 s
+  época  5 | pérdida ent 0.2417 val 0.5131 | F1 val 0.8272 (umbral 0.92) | 27.6 s
+  época  6 | pérdida ent 0.2284 val 0.7343 | F1 val 0.7533 (umbral 0.93) | 28.7 s
+  época  7 | pérdida ent 0.2099 val 0.5089 | F1 val 0.8384 (umbral 0.93) | 28.7 s
+  época  8 | pérdida ent 0.2084 val 0.4875 | F1 val 0.8461 (umbral 0.93) | 37.8 s
+  parada temprana en la época 8
+  modelo 3/4 listo (18.1 min)
+[s1] externo 1 (fuera: 112, 124, 201, 209), val 4
+  época  1 | pérdida ent 0.7579 val 0.8896 | F1 val 0.7970 (umbral 0.30) | 37.2 s
+  época  2 | pérdida ent 0.4081 val 1.3693 | F1 val 0.7837 (umbral 0.15) | 32.6 s
+  época  3 | pérdida ent 0.3370 val 0.7455 | F1 val 0.7731 (umbral 0.45) | 35.6 s
+  época  4 | pérdida ent 0.2970 val 0.5604 | F1 val 0.8127 (umbral 0.73) | 36.3 s
+  época  5 | pérdida ent 0.2717 val 1.8874 | F1 val 0.6947 (umbral 0.08) | 58.1 s
+  época  6 | pérdida ent 0.2515 val 2.0385 | F1 val 0.5778 (umbral 0.07) | 50.1 s
+  época  7 | pérdida ent 0.2374 val 0.8883 | F1 val 0.6633 (umbral 0.37) | 62.3 s
+  época  8 | pérdida ent 0.2153 val 0.9775 | F1 val 0.6621 (umbral 0.08) | 45.6 s
+  época  9 | pérdida ent 0.2108 val 0.9642 | F1 val 0.6892 (umbral 0.06) | 46.9 s
+  parada temprana en la época 9
+  modelo 4/4 listo (24.8 min)
+[s1] externo 2 (fuera: 101, 109, 115, 230), val 0
+  época  1 | pérdida ent 0.8892 val 0.9362 | F1 val 0.6888 (umbral 0.80) | 46.7 s
+  época  2 | pérdida ent 0.4789 val 0.6735 | F1 val 0.6644 (umbral 0.78) | 67.0 s
+  época  3 | pérdida ent 0.3821 val 1.0521 | F1 val 0.6696 (umbral 0.88) | 45.0 s
+  época  4 | pérdida ent 0.3406 val 0.6925 | F1 val 0.7663 (umbral 0.90) | 39.5 s
+  época  5 | pérdida ent 0.3106 val 1.0870 | F1 val 0.6694 (umbral 0.10) | 37.9 s
+  época  6 | pérdida ent 0.2840 val 0.6496 | F1 val 0.7145 (umbral 0.93) | 44.3 s
+  época  7 | pérdida ent 0.2598 val 1.1913 | F1 val 0.7087 (umbral 0.94) | 45.2 s
+  época  8 | pérdida ent 0.2394 val 0.6038 | F1 val 0.7159 (umbral 0.76) | 33.8 s
+  época  9 | pérdida ent 0.2164 val 0.5639 | F1 val 0.7676 (umbral 0.95) | 35.9 s
+  época 10 | pérdida ent 0.2050 val 0.7511 | F1 val 0.7743 (umbral 0.96) | 62.0 s
+  época 11 | pérdida ent 0.1890 val 0.8180 | F1 val 0.7571 (umbral 0.96) | 86.9 s
+  época 12 | pérdida ent 0.1859 val 0.6557 | F1 val 0.7122 (umbral 0.93) | 100.6 s
+  época 13 | pérdida ent 0.1745 val 0.8199 | F1 val 0.7530 (umbral 0.97) | 92.7 s
+  época 14 | pérdida ent 0.1663 val 0.8148 | F1 val 0.8037 (umbral 0.97) | 80.8 s
+  época 15 | pérdida ent 0.1516 val 0.6577 | F1 val 0.7058 (umbral 0.81) | 73.6 s
+  época 16 | pérdida ent 0.1467 val 0.6503 | F1 val 0.7231 (umbral 0.94) | 60.2 s
+  parada temprana en la época 16
+  modelo 1/4 listo (40.8 min)
+[s1] externo 2 (fuera: 101, 109, 115, 230), val 1
+  época  1 | pérdida ent 0.7742 val 1.4559 | F1 val 0.4133 (umbral 0.19) | 48.5 s
+  época  2 | pérdida ent 0.4264 val 1.8707 | F1 val 0.4086 (umbral 0.13) | 48.6 s
+  época  3 | pérdida ent 0.3665 val 2.0446 | F1 val 0.4147 (umbral 0.10) | 46.7 s
+  época  4 | pérdida ent 0.3283 val 2.3121 | F1 val 0.4092 (umbral 0.08) | 46.3 s
+  época  5 | pérdida ent 0.3030 val 2.4411 | F1 val 0.4086 (umbral 0.06) | 46.7 s
+  época  6 | pérdida ent 0.2900 val 2.5364 | F1 val 0.4086 (umbral 0.04) | 45.1 s
+  época  7 | pérdida ent 0.2720 val 2.5190 | F1 val 0.4102 (umbral 0.06) | 44.0 s
+  época  8 | pérdida ent 0.2687 val 2.5576 | F1 val 0.4090 (umbral 0.05) | 45.0 s
+  parada temprana en la época 8
+  modelo 2/4 listo (47.0 min)
+[s1] externo 2 (fuera: 101, 109, 115, 230), val 3
+  época  1 | pérdida ent 0.8934 val 0.5760 | F1 val 0.8423 (umbral 0.76) | 45.5 s
+  época  2 | pérdida ent 0.5465 val 0.4566 | F1 val 0.8572 (umbral 0.55) | 44.3 s
+  época  3 | pérdida ent 0.4428 val 0.8013 | F1 val 0.7296 (umbral 0.18) | 43.7 s
+  época  4 | pérdida ent 0.3956 val 0.5502 | F1 val 0.8347 (umbral 0.90) | 43.8 s
+  época  5 | pérdida ent 0.3587 val 0.4472 | F1 val 0.8694 (umbral 0.92) | 43.8 s
+  época  6 | pérdida ent 0.3278 val 0.7886 | F1 val 0.8214 (umbral 0.93) | 42.8 s
+  época  7 | pérdida ent 0.3031 val 0.5531 | F1 val 0.8666 (umbral 0.93) | 45.5 s
+  época  8 | pérdida ent 0.2784 val 0.6662 | F1 val 0.8514 (umbral 0.95) | 57.3 s
+  época  9 | pérdida ent 0.2573 val 0.7203 | F1 val 0.8348 (umbral 0.96) | 46.7 s
+  época 10 | pérdida ent 0.2428 val 1.5324 | F1 val 0.7159 (umbral 0.96) | 43.9 s
+  época 11 | pérdida ent 0.2224 val 0.6305 | F1 val 0.8243 (umbral 0.96) | 44.9 s
+  época 12 | pérdida ent 0.2170 val 0.6579 | F1 val 0.8248 (umbral 0.96) | 44.3 s
+  parada temprana en la época 12
+  modelo 3/4 listo (56.1 min)
+[s1] externo 2 (fuera: 101, 109, 115, 230), val 4
+  época  1 | pérdida ent 0.8518 val 1.4883 | F1 val 0.4433 (umbral 0.23) | 42.0 s
+  época  2 | pérdida ent 0.5342 val 1.1138 | F1 val 0.5202 (umbral 0.29) | 35.7 s
+  época  3 | pérdida ent 0.4768 val 1.2378 | F1 val 0.5700 (umbral 0.35) | 36.8 s
+  época  4 | pérdida ent 0.4450 val 1.8821 | F1 val 0.4376 (umbral 0.10) | 35.5 s
+  época  5 | pérdida ent 0.4255 val 1.9188 | F1 val 0.4378 (umbral 0.10) | 37.6 s
+  época  6 | pérdida ent 0.4041 val 1.9200 | F1 val 0.6102 (umbral 0.12) | 33.5 s
+  época  7 | pérdida ent 0.3896 val 1.5893 | F1 val 0.4538 (umbral 0.15) | 31.6 s
+  época  8 | pérdida ent 0.3853 val 1.2704 | F1 val 0.4871 (umbral 0.14) | 36.3 s
+  época  9 | pérdida ent 0.3828 val 1.4282 | F1 val 0.5306 (umbral 0.26) | 32.9 s
+  época 10 | pérdida ent 0.3799 val 1.3600 | F1 val 0.4731 (umbral 0.36) | 31.7 s
+  época 11 | pérdida ent 0.3769 val 1.3771 | F1 val 0.4888 (umbral 0.33) | 27.3 s
+  época 12 | pérdida ent 0.3750 val 1.4109 | F1 val 0.4702 (umbral 0.31) | 27.7 s
+  época 13 | pérdida ent 0.3748 val 1.4430 | F1 val 0.4648 (umbral 0.29) | 36.9 s
+  parada temprana en la época 13
+  modelo 4/4 listo (63.5 min)
+[s1] externo 3 (fuera: 106, 108, 116, 205, 207), val 0
+  época  1 | pérdida ent 0.9054 val 0.6831 | F1 val 0.7574 (umbral 0.58) | 62.2 s
+  época  2 | pérdida ent 0.4732 val 0.6233 | F1 val 0.6924 (umbral 0.41) | 57.9 s
+  época  3 | pérdida ent 0.3276 val 0.7058 | F1 val 0.6108 (umbral 0.33) | 43.2 s
+  época  4 | pérdida ent 0.2857 val 0.6780 | F1 val 0.6813 (umbral 0.13) | 34.5 s
+  época  5 | pérdida ent 0.2547 val 0.7042 | F1 val 0.7198 (umbral 0.91) | 30.8 s
+  época  6 | pérdida ent 0.2198 val 1.2929 | F1 val 0.5423 (umbral 0.09) | 48.6 s
+  época  7 | pérdida ent 0.1992 val 0.5806 | F1 val 0.6993 (umbral 0.76) | 36.9 s
+  época  8 | pérdida ent 0.1955 val 0.5515 | F1 val 0.7112 (umbral 0.66) | 18.8 s
+  parada temprana en la época 8
+  modelo 1/4 listo (69.3 min)
+[s1] externo 3 (fuera: 106, 108, 116, 205, 207), val 1
+  época  1 | pérdida ent 0.7837 val 1.5006 | F1 val 0.4380 (umbral 0.23) | 23.6 s
+  época  2 | pérdida ent 0.3814 val 1.8395 | F1 val 0.4136 (umbral 0.13) | 23.7 s
+  época  3 | pérdida ent 0.3105 val 1.7932 | F1 val 0.4087 (umbral 0.10) | 40.1 s
+  época  4 | pérdida ent 0.2697 val 2.1568 | F1 val 0.4125 (umbral 0.08) | 78.0 s
+  época  5 | pérdida ent 0.2417 val 2.3437 | F1 val 0.4115 (umbral 0.07) | 74.8 s
+  época  6 | pérdida ent 0.2284 val 2.3207 | F1 val 0.4086 (umbral 0.05) | 75.3 s
+  época  7 | pérdida ent 0.2099 val 2.4859 | F1 val 0.4109 (umbral 0.06) | 75.0 s
+  época  8 | pérdida ent 0.2084 val 2.5220 | F1 val 0.4115 (umbral 0.06) | 79.2 s
+  parada temprana en la época 8
+  modelo 2/4 listo (77.1 min)
+[s1] externo 3 (fuera: 106, 108, 116, 205, 207), val 2
+  época  1 | pérdida ent 0.8934 val 0.5115 | F1 val 0.9884 (umbral 0.54) | 79.3 s
+  época  2 | pérdida ent 0.5465 val 0.7274 | F1 val 0.8885 (umbral 0.39) | 77.0 s
+  época  3 | pérdida ent 0.4428 val 1.1050 | F1 val 0.7225 (umbral 0.15) | 76.2 s
+  época  4 | pérdida ent 0.3956 val 0.6679 | F1 val 0.7250 (umbral 0.65) | 76.5 s
+  época  5 | pérdida ent 0.3587 val 0.5080 | F1 val 0.8808 (umbral 0.51) | 75.8 s
+  época  6 | pérdida ent 0.3278 val 0.8785 | F1 val 0.7155 (umbral 0.69) | 75.9 s
+  época  7 | pérdida ent 0.3039 val 0.9364 | F1 val 0.7163 (umbral 0.35) | 77.1 s
+  época  8 | pérdida ent 0.2976 val 1.0915 | F1 val 0.7090 (umbral 0.28) | 77.1 s
+  parada temprana en la época 8
+  modelo 3/4 listo (87.4 min)
+[s1] externo 3 (fuera: 106, 108, 116, 205, 207), val 4
+  época  1 | pérdida ent 0.8432 val 1.1590 | F1 val 0.5064 (umbral 0.24) | 77.7 s
+  época  2 | pérdida ent 0.5126 val 0.8822 | F1 val 0.6709 (umbral 0.78) | 77.9 s
+  época  3 | pérdida ent 0.4360 val 0.8775 | F1 val 0.6652 (umbral 0.54) | 73.1 s
+  época  4 | pérdida ent 0.4043 val 0.6908 | F1 val 0.7323 (umbral 0.61) | 35.5 s
+  época  5 | pérdida ent 0.3787 val 1.0375 | F1 val 0.6168 (umbral 0.50) | 33.2 s
+  época  6 | pérdida ent 0.3597 val 0.7553 | F1 val 0.8211 (umbral 0.21) | 33.6 s
+  época  7 | pérdida ent 0.3364 val 0.5266 | F1 val 0.9327 (umbral 0.16) | 30.1 s
+  época  8 | pérdida ent 0.3214 val 1.2832 | F1 val 0.8563 (umbral 0.13) | 29.9 s
+  época  9 | pérdida ent 0.3113 val 0.7577 | F1 val 0.8907 (umbral 0.17) | 30.9 s
+  época 10 | pérdida ent 0.2930 val 0.4406 | F1 val 0.8687 (umbral 0.58) | 30.9 s
+  época 11 | pérdida ent 0.2803 val 0.4255 | F1 val 0.8744 (umbral 0.50) | 32.9 s
+  época 12 | pérdida ent 0.2671 val 0.4949 | F1 val 0.8521 (umbral 0.36) | 33.5 s
+  época 13 | pérdida ent 0.2535 val 0.3903 | F1 val 0.9032 (umbral 0.39) | 33.3 s
+  época 14 | pérdida ent 0.2514 val 0.4303 | F1 val 0.8960 (umbral 0.36) | 54.0 s
+  parada temprana en la época 14
+  modelo 4/4 listo (97.5 min)
+[s1] externo 4 (fuera: 114, 118, 122, 220), val 0
+  época  1 | pérdida ent 0.8239 val 0.7225 | F1 val 0.7673 (umbral 0.80) | 56.9 s
+  época  2 | pérdida ent 0.4273 val 0.5780 | F1 val 0.7013 (umbral 0.76) | 47.5 s
+  época  3 | pérdida ent 0.3397 val 0.5112 | F1 val 0.7680 (umbral 0.83) | 43.5 s
+  época  4 | pérdida ent 0.3077 val 0.7224 | F1 val 0.7103 (umbral 0.15) | 32.4 s
+  época  5 | pérdida ent 0.2773 val 1.2567 | F1 val 0.6259 (umbral 0.93) | 32.6 s
+  época  6 | pérdida ent 0.2652 val 0.5163 | F1 val 0.7506 (umbral 0.82) | 39.4 s
+  época  7 | pérdida ent 0.2495 val 0.6378 | F1 val 0.6905 (umbral 0.73) | 34.1 s
+  época  8 | pérdida ent 0.2457 val 0.6219 | F1 val 0.6912 (umbral 0.55) | 37.0 s
+  parada temprana en la época 8
+  modelo 1/4 listo (103.1 min)
+[s1] externo 4 (fuera: 114, 118, 122, 220), val 1
+  época  1 | pérdida ent 0.7579 val 1.2559 | F1 val 0.4818 (umbral 0.22) | 44.3 s
+  época  2 | pérdida ent 0.4081 val 1.5438 | F1 val 0.4187 (umbral 0.13) | 39.5 s
+  época  3 | pérdida ent 0.3370 val 1.9891 | F1 val 0.4087 (umbral 0.10) | 46.7 s
+  época  4 | pérdida ent 0.2970 val 2.3284 | F1 val 0.4086 (umbral 0.08) | 52.6 s
+  época  5 | pérdida ent 0.2717 val 2.0315 | F1 val 0.4185 (umbral 0.07) | 66.8 s
+  época  6 | pérdida ent 0.2515 val 2.0279 | F1 val 0.4115 (umbral 0.06) | 49.8 s
+  época  7 | pérdida ent 0.2294 val 2.5998 | F1 val 0.4089 (umbral 0.06) | 42.7 s
+  época  8 | pérdida ent 0.2256 val 2.5023 | F1 val 0.4086 (umbral 0.05) | 42.0 s
+  parada temprana en la época 8
+  modelo 2/4 listo (109.5 min)
+[s1] externo 4 (fuera: 114, 118, 122, 220), val 2
+  época  1 | pérdida ent 0.8518 val 1.0092 | F1 val 0.9935 (umbral 0.27) | 42.6 s
+  época  2 | pérdida ent 0.5342 val 0.6510 | F1 val 0.7481 (umbral 0.79) | 43.5 s
+  época  3 | pérdida ent 0.4768 val 0.7458 | F1 val 0.7739 (umbral 0.39) | 47.1 s
+  época  4 | pérdida ent 0.4450 val 1.9153 | F1 val 0.4553 (umbral 0.12) | 57.9 s
+  época  5 | pérdida ent 0.4255 val 1.4989 | F1 val 0.7281 (umbral 0.16) | 62.2 s
+  época  6 | pérdida ent 0.4041 val 2.2026 | F1 val 0.4553 (umbral 0.09) | 105.1 s
+  época  7 | pérdida ent 0.3896 val 1.1035 | F1 val 0.7502 (umbral 0.19) | 82.4 s
+  época  8 | pérdida ent 0.3853 val 0.8705 | F1 val 0.7416 (umbral 0.30) | 103.0 s
+  parada temprana en la época 8
+  modelo 3/4 listo (118.6 min)
+[s1] externo 4 (fuera: 114, 118, 122, 220), val 3
+  época  1 | pérdida ent 0.8432 val 0.5236 | F1 val 0.8755 (umbral 0.73) | 78.5 s
+  época  2 | pérdida ent 0.5126 val 0.5434 | F1 val 0.7893 (umbral 0.84) | 76.0 s
+  época  3 | pérdida ent 0.4360 val 0.4893 | F1 val 0.8475 (umbral 0.88) | 76.0 s
+  época  4 | pérdida ent 0.4043 val 0.5134 | F1 val 0.8351 (umbral 0.90) | 74.3 s
+  época  5 | pérdida ent 0.3787 val 0.5214 | F1 val 0.8308 (umbral 0.92) | 74.3 s
+  época  6 | pérdida ent 0.3597 val 0.4817 | F1 val 0.7985 (umbral 0.77) | 74.9 s
+  época  7 | pérdida ent 0.3364 val 0.4356 | F1 val 0.8620 (umbral 0.84) | 75.0 s
+  época  8 | pérdida ent 0.3214 val 0.8624 | F1 val 0.7551 (umbral 0.15) | 83.0 s
+  época  9 | pérdida ent 0.3078 val 0.4391 | F1 val 0.8483 (umbral 0.84) | 81.9 s
+  época 10 | pérdida ent 0.3037 val 0.5181 | F1 val 0.8122 (umbral 0.88) | 82.1 s
+  parada temprana en la época 10
+  modelo 4/4 listo (131.5 min)
+[s1] umbral ensamble 0.504 (antes 0.281), F1 0.6432
+[qcnn_base_s1] PRUEBA: F1 0.6212, exactitud 0.8245, sensibilidad 0.5191
+Listo.
+[s0] externo 0 (fuera: 119, 203, 208, 215, 223), val 1
+  época  1 | pérdida ent 0.6886 val 1.3823 | F1 val 0.4154 (umbral 0.18) | 73.6 s
+  época  2 | pérdida ent 0.3827 val 1.6897 | F1 val 0.4231 (umbral 0.15) | 76.8 s
+  época  3 | pérdida ent 0.3061 val 1.8200 | F1 val 0.4178 (umbral 0.12) | 38.3 s
+  época  4 | pérdida ent 0.2640 val 1.7092 | F1 val 0.4160 (umbral 0.10) | 49.2 s
+  época  5 | pérdida ent 0.2302 val 2.1476 | F1 val 0.4219 (umbral 0.08) | 50.1 s
+  época  6 | pérdida ent 0.2020 val 2.1544 | F1 val 0.4144 (umbral 0.06) | 51.7 s
+  época  7 | pérdida ent 0.1824 val 2.2882 | F1 val 0.4086 (umbral 0.05) | 47.4 s
+  época  8 | pérdida ent 0.1637 val 2.1559 | F1 val 0.4191 (umbral 0.06) | 48.5 s
+  época  9 | pérdida ent 0.1580 val 2.2217 | F1 val 0.4185 (umbral 0.05) | 47.8 s
+  parada temprana en la época 9
+  modelo 1/4 listo (8.2 min)
+[s0] externo 0 (fuera: 119, 203, 208, 215, 223), val 2
+  época  1 | pérdida ent 0.8133 val 0.5058 | F1 val 0.9937 (umbral 0.48) | 52.0 s
+  época  2 | pérdida ent 0.4811 val 0.5154 | F1 val 0.9295 (umbral 0.76) | 57.0 s
+  época  3 | pérdida ent 0.3616 val 0.3907 | F1 val 0.9696 (umbral 0.88) | 58.4 s
+  época  4 | pérdida ent 0.3271 val 0.3950 | F1 val 0.9810 (umbral 0.30) | 58.8 s
+  época  5 | pérdida ent 0.2867 val 0.2955 | F1 val 0.9817 (umbral 0.87) | 57.0 s
+  época  6 | pérdida ent 0.2641 val 0.3714 | F1 val 0.9540 (umbral 0.90) | 58.2 s
+  época  7 | pérdida ent 0.2428 val 0.3769 | F1 val 0.9463 (umbral 0.79) | 67.7 s
+  época  8 | pérdida ent 0.2136 val 0.1784 | F1 val 0.9822 (umbral 0.46) | 62.1 s
+  época  9 | pérdida ent 0.1924 val 0.2107 | F1 val 0.9795 (umbral 0.60) | 63.5 s
+  época 10 | pérdida ent 0.1890 val 0.2875 | F1 val 0.9699 (umbral 0.86) | 60.8 s
+  parada temprana en la época 10
+  modelo 2/4 listo (18.1 min)
+[s0] externo 0 (fuera: 119, 203, 208, 215, 223), val 3
+  época  1 | pérdida ent 0.7935 val 0.5354 | F1 val 0.7940 (umbral 0.66) | 63.3 s
+  época  2 | pérdida ent 0.4328 val 0.6044 | F1 val 0.7309 (umbral 0.80) | 60.2 s
+  época  3 | pérdida ent 0.3342 val 0.5244 | F1 val 0.7528 (umbral 0.65) | 64.9 s
+  época  4 | pérdida ent 0.2788 val 0.6208 | F1 val 0.7428 (umbral 0.88) | 66.1 s
+  época  5 | pérdida ent 0.2428 val 0.5372 | F1 val 0.7435 (umbral 0.29) | 60.4 s
+  época  6 | pérdida ent 0.2111 val 0.7341 | F1 val 0.7052 (umbral 0.15) | 62.0 s
+  época  7 | pérdida ent 0.1909 val 0.6872 | F1 val 0.7158 (umbral 0.18) | 61.3 s
+  época  8 | pérdida ent 0.1859 val 0.6493 | F1 val 0.7181 (umbral 0.22) | 63.7 s
+  parada temprana en la época 8
+  modelo 3/4 listo (26.5 min)
+[s0] externo 0 (fuera: 119, 203, 208, 215, 223), val 4
+  época  1 | pérdida ent 0.7386 val 1.0299 | F1 val 0.5263 (umbral 0.21) | 65.7 s
+  época  2 | pérdida ent 0.4058 val 1.4163 | F1 val 0.4408 (umbral 0.17) | 65.4 s
+  época  3 | pérdida ent 0.3418 val 1.2409 | F1 val 0.5111 (umbral 0.14) | 65.3 s
+  época  4 | pérdida ent 0.2951 val 1.1372 | F1 val 0.5427 (umbral 0.19) | 64.2 s
+  época  5 | pérdida ent 0.2758 val 1.2185 | F1 val 0.7721 (umbral 0.14) | 61.7 s
+  época  6 | pérdida ent 0.2533 val 1.8303 | F1 val 0.4961 (umbral 0.10) | 60.2 s
+  época  7 | pérdida ent 0.2465 val 1.6834 | F1 val 0.6699 (umbral 0.10) | 60.1 s
+  época  8 | pérdida ent 0.2332 val 0.9976 | F1 val 0.5720 (umbral 0.45) | 64.2 s
+  época  9 | pérdida ent 0.1928 val 2.0983 | F1 val 0.5585 (umbral 0.06) | 62.2 s
+  época 10 | pérdida ent 0.1661 val 2.0068 | F1 val 0.5266 (umbral 0.05) | 61.7 s
+  época 11 | pérdida ent 0.1481 val 1.4541 | F1 val 0.6161 (umbral 0.11) | 61.7 s
+  época 12 | pérdida ent 0.1427 val 1.5344 | F1 val 0.5715 (umbral 0.08) | 62.0 s
+  parada temprana en la época 12
+  modelo 4/4 listo (39.0 min)
+[s0] externo 1 (fuera: 112, 124, 201, 209), val 0
+  época  1 | pérdida ent 0.6852 val 0.7369 | F1 val 0.7367 (umbral 0.27) | 63.5 s
+  época  2 | pérdida ent 0.3645 val 1.0889 | F1 val 0.7711 (umbral 0.84) | 56.7 s
+  época  3 | pérdida ent 0.2947 val 0.9095 | F1 val 0.7591 (umbral 0.13) | 57.0 s
+  época  4 | pérdida ent 0.2486 val 0.5309 | F1 val 0.8162 (umbral 0.23) | 54.7 s
+  época  5 | pérdida ent 0.2170 val 0.5249 | F1 val 0.8469 (umbral 0.91) | 53.7 s
+  época  6 | pérdida ent 0.1957 val 0.8368 | F1 val 0.7883 (umbral 0.11) | 46.1 s
+  época  7 | pérdida ent 0.1751 val 0.4729 | F1 val 0.7921 (umbral 0.62) | 51.6 s
+  época  8 | pérdida ent 0.1590 val 0.5362 | F1 val 0.7769 (umbral 0.53) | 56.6 s
+  época  9 | pérdida ent 0.1459 val 0.5825 | F1 val 0.7263 (umbral 0.50) | 54.2 s
+  época 10 | pérdida ent 0.1334 val 0.5049 | F1 val 0.7689 (umbral 0.78) | 56.4 s
+  época 11 | pérdida ent 0.1300 val 0.5065 | F1 val 0.7714 (umbral 0.84) | 56.1 s
+  parada temprana en la época 11
+  modelo 1/4 listo (49.5 min)
+[s0] externo 1 (fuera: 112, 124, 201, 209), val 2
+  época  1 | pérdida ent 0.6802 val 1.6405 | F1 val 0.6086 (umbral 0.20) | 65.5 s
+  época  2 | pérdida ent 0.4224 val 1.0578 | F1 val 0.9883 (umbral 0.20) | 64.2 s
+  época  3 | pérdida ent 0.3630 val 0.3490 | F1 val 0.9847 (umbral 0.45) | 65.0 s
+  época  4 | pérdida ent 0.3264 val 1.3571 | F1 val 0.9844 (umbral 0.13) | 64.3 s
+  época  5 | pérdida ent 0.3021 val 1.1203 | F1 val 0.9896 (umbral 0.12) | 65.4 s
+  época  6 | pérdida ent 0.2849 val 0.9041 | F1 val 0.9518 (umbral 0.19) | 65.8 s
+  época  7 | pérdida ent 0.2703 val 0.4428 | F1 val 0.9427 (umbral 0.82) | 66.7 s
+  época  8 | pérdida ent 0.2598 val 0.3860 | F1 val 0.9745 (umbral 0.41) | 67.8 s
+  época  9 | pérdida ent 0.2445 val 0.6001 | F1 val 0.9588 (umbral 0.32) | 66.5 s
+  época 10 | pérdida ent 0.2400 val 0.6741 | F1 val 0.9640 (umbral 0.25) | 67.6 s
+  parada temprana en la época 10
+  modelo 2/4 listo (60.5 min)
+[s0] externo 1 (fuera: 112, 124, 201, 209), val 3
+  época  1 | pérdida ent 0.6774 val 0.5309 | F1 val 0.8564 (umbral 0.80) | 66.4 s
+  época  2 | pérdida ent 0.3779 val 0.5037 | F1 val 0.8777 (umbral 0.86) | 66.2 s
+  época  3 | pérdida ent 0.3143 val 0.4970 | F1 val 0.8667 (umbral 0.89) | 65.6 s
+  época  4 | pérdida ent 0.2784 val 0.3826 | F1 val 0.8823 (umbral 0.82) | 65.7 s
+  época  5 | pérdida ent 0.2566 val 0.4181 | F1 val 0.8727 (umbral 0.88) | 66.4 s
+  época  6 | pérdida ent 0.2382 val 0.4386 | F1 val 0.8667 (umbral 0.41) | 65.8 s
+  época  7 | pérdida ent 0.2257 val 0.4108 | F1 val 0.8802 (umbral 0.92) | 66.7 s
+  época  8 | pérdida ent 0.2148 val 0.4886 | F1 val 0.8830 (umbral 0.95) | 65.1 s
+  época  9 | pérdida ent 0.2115 val 0.5313 | F1 val 0.8742 (umbral 0.95) | 65.5 s
+  época 10 | pérdida ent 0.2088 val 0.5402 | F1 val 0.8715 (umbral 0.95) | 66.0 s
+  época 11 | pérdida ent 0.2077 val 0.5098 | F1 val 0.8784 (umbral 0.95) | 57.9 s
+  época 12 | pérdida ent 0.2064 val 0.5041 | F1 val 0.8786 (umbral 0.95) | 54.1 s
+  época 13 | pérdida ent 0.2047 val 0.4860 | F1 val 0.8831 (umbral 0.95) | 68.2 s
+  época 14 | pérdida ent 0.2033 val 0.4866 | F1 val 0.8828 (umbral 0.95) | 63.7 s
+  época 15 | pérdida ent 0.2037 val 0.4816 | F1 val 0.8832 (umbral 0.95) | 63.8 s
+  época 16 | pérdida ent 0.2032 val 0.4928 | F1 val 0.8818 (umbral 0.95) | 49.6 s
+  época 17 | pérdida ent 0.2028 val 0.4918 | F1 val 0.8815 (umbral 0.95) | 39.4 s
+  época 18 | pérdida ent 0.2030 val 0.4825 | F1 val 0.8832 (umbral 0.95) | 36.3 s
+  época 19 | pérdida ent 0.2020 val 0.4913 | F1 val 0.8820 (umbral 0.95) | 38.6 s
+  época 20 | pérdida ent 0.2018 val 0.4832 | F1 val 0.8831 (umbral 0.95) | 38.9 s
+  parada temprana en la época 20
+  modelo 3/4 listo (80.0 min)
+[s0] externo 1 (fuera: 112, 124, 201, 209), val 4
+  época  1 | pérdida ent 0.6668 val 0.8491 | F1 val 0.8428 (umbral 0.27) | 39.2 s
+  época  2 | pérdida ent 0.3910 val 1.0185 | F1 val 0.7786 (umbral 0.16) | 37.8 s
+  época  3 | pérdida ent 0.3263 val 0.7094 | F1 val 0.7702 (umbral 0.43) | 38.4 s
+  época  4 | pérdida ent 0.2929 val 1.0993 | F1 val 0.8205 (umbral 0.10) | 38.1 s
+  época  5 | pérdida ent 0.2685 val 0.9272 | F1 val 0.7182 (umbral 0.31) | 39.8 s
+  época  6 | pérdida ent 0.2515 val 0.8226 | F1 val 0.7073 (umbral 0.81) | 36.5 s
+  época  7 | pérdida ent 0.2381 val 0.7185 | F1 val 0.7674 (umbral 0.68) | 38.2 s
+  época  8 | pérdida ent 0.2323 val 0.7100 | F1 val 0.7607 (umbral 0.73) | 38.4 s
+  parada temprana en la época 8
+  modelo 4/4 listo (85.1 min)
+[s0] externo 2 (fuera: 101, 109, 115, 230), val 0
+  época  1 | pérdida ent 0.8133 val 0.5734 | F1 val 0.8104 (umbral 0.68) | 34.2 s
+  época  2 | pérdida ent 0.4811 val 0.6032 | F1 val 0.7269 (umbral 0.83) | 34.0 s
+  época  3 | pérdida ent 0.3616 val 0.6572 | F1 val 0.7443 (umbral 0.88) | 35.1 s
+  época  4 | pérdida ent 0.3271 val 0.7534 | F1 val 0.6573 (umbral 0.18) | 33.9 s
+  época  5 | pérdida ent 0.2867 val 0.6322 | F1 val 0.7268 (umbral 0.91) | 34.3 s
+  época  6 | pérdida ent 0.2641 val 0.5821 | F1 val 0.7305 (umbral 0.90) | 33.3 s
+  época  7 | pérdida ent 0.2364 val 0.5762 | F1 val 0.7320 (umbral 0.83) | 34.3 s
+  época  8 | pérdida ent 0.2285 val 0.5934 | F1 val 0.7115 (umbral 0.68) | 37.0 s
+  parada temprana en la época 8
+  modelo 1/4 listo (89.9 min)
+[s0] externo 2 (fuera: 101, 109, 115, 230), val 1
+  época  1 | pérdida ent 0.6802 val 1.4551 | F1 val 0.4298 (umbral 0.19) | 39.3 s
+  época  2 | pérdida ent 0.4224 val 1.6774 | F1 val 0.4414 (umbral 0.15) | 38.1 s
+  época  3 | pérdida ent 0.3630 val 2.1061 | F1 val 0.4347 (umbral 0.12) | 37.2 s
+  época  4 | pérdida ent 0.3264 val 2.0948 | F1 val 0.4365 (umbral 0.09) | 41.8 s
+  época  5 | pérdida ent 0.3021 val 2.1371 | F1 val 0.4465 (umbral 0.08) | 37.7 s
+  época  6 | pérdida ent 0.2849 val 2.5312 | F1 val 0.4095 (umbral 0.06) | 37.3 s
+  época  7 | pérdida ent 0.2703 val 2.7092 | F1 val 0.4086 (umbral 0.02) | 42.4 s
+  época  8 | pérdida ent 0.2598 val 2.7282 | F1 val 0.4127 (umbral 0.05) | 38.7 s
+  época  9 | pérdida ent 0.2445 val 2.7525 | F1 val 0.4090 (umbral 0.03) | 39.0 s
+  época 10 | pérdida ent 0.2400 val 2.7504 | F1 val 0.4089 (umbral 0.03) | 37.3 s
+  parada temprana en la época 10
+  modelo 2/4 listo (96.3 min)
+[s0] externo 2 (fuera: 101, 109, 115, 230), val 3
+  época  1 | pérdida ent 0.8114 val 0.7020 | F1 val 0.7952 (umbral 0.79) | 37.7 s
+  época  2 | pérdida ent 0.5346 val 1.3301 | F1 val 0.5391 (umbral 0.85) | 37.0 s
+  época  3 | pérdida ent 0.4370 val 0.4832 | F1 val 0.8006 (umbral 0.69) | 36.0 s
+  época  4 | pérdida ent 0.3935 val 0.5474 | F1 val 0.7906 (umbral 0.90) | 36.3 s
+  época  5 | pérdida ent 0.3678 val 0.9562 | F1 val 0.8398 (umbral 0.17) | 38.7 s
+  época  6 | pérdida ent 0.3540 val 0.6202 | F1 val 0.7688 (umbral 0.92) | 36.4 s
+  época  7 | pérdida ent 0.3385 val 1.4308 | F1 val 0.4375 (umbral 0.20) | 36.5 s
+  época  8 | pérdida ent 0.3209 val 0.5297 | F1 val 0.7824 (umbral 0.48) | 35.7 s
+  época  9 | pérdida ent 0.3073 val 0.5062 | F1 val 0.8285 (umbral 0.92) | 36.1 s
+  época 10 | pérdida ent 0.3033 val 0.5669 | F1 val 0.8062 (umbral 0.91) | 36.0 s
+  parada temprana en la época 10
+  modelo 3/4 listo (102.5 min)
+[s0] externo 2 (fuera: 101, 109, 115, 230), val 4
+  época  1 | pérdida ent 0.7659 val 0.8615 | F1 val 0.6991 (umbral 0.70) | 37.8 s
+  época  2 | pérdida ent 0.5044 val 1.6511 | F1 val 0.6005 (umbral 0.18) | 37.1 s
+  época  3 | pérdida ent 0.4516 val 1.1489 | F1 val 0.5206 (umbral 0.15) | 37.6 s
+  época  4 | pérdida ent 0.4303 val 1.0368 | F1 val 0.7753 (umbral 0.14) | 37.5 s
+  época  5 | pérdida ent 0.4087 val 0.8235 | F1 val 0.8043 (umbral 0.14) | 37.5 s
+  época  6 | pérdida ent 0.3790 val 1.0971 | F1 val 0.7647 (umbral 0.19) | 37.6 s
+  época  7 | pérdida ent 0.3491 val 1.4139 | F1 val 0.7481 (umbral 0.17) | 39.7 s
+  época  8 | pérdida ent 0.3271 val 0.6399 | F1 val 0.8102 (umbral 0.33) | 37.4 s
+  época  9 | pérdida ent 0.3140 val 0.9046 | F1 val 0.7340 (umbral 0.91) | 37.5 s
+  época 10 | pérdida ent 0.2948 val 0.9262 | F1 val 0.7378 (umbral 0.28) | 37.6 s
+  época 11 | pérdida ent 0.2908 val 0.6412 | F1 val 0.7804 (umbral 0.32) | 37.1 s
+  parada temprana en la época 11
+  modelo 4/4 listo (109.4 min)
+[s0] externo 3 (fuera: 106, 108, 116, 205, 207), val 0
+  época  1 | pérdida ent 0.7935 val 0.6001 | F1 val 0.7749 (umbral 0.74) | 31.7 s
+  época  2 | pérdida ent 0.4328 val 0.7829 | F1 val 0.7399 (umbral 0.85) | 30.5 s
+  época  3 | pérdida ent 0.3342 val 0.6110 | F1 val 0.6919 (umbral 0.85) | 31.1 s
+  época  4 | pérdida ent 0.2788 val 0.7665 | F1 val 0.7269 (umbral 0.91) | 30.3 s
+  época  5 | pérdida ent 0.2428 val 0.5471 | F1 val 0.7452 (umbral 0.91) | 30.7 s
+  época  6 | pérdida ent 0.2111 val 0.5681 | F1 val 0.7055 (umbral 0.82) | 31.7 s
+  época  7 | pérdida ent 0.1909 val 0.5613 | F1 val 0.7383 (umbral 0.93) | 31.2 s
+  época  8 | pérdida ent 0.1859 val 0.5533 | F1 val 0.7585 (umbral 0.93) | 30.0 s
+  parada temprana en la época 8
+  modelo 1/4 listo (113.6 min)
+[s0] externo 3 (fuera: 106, 108, 116, 205, 207), val 1
+  época  1 | pérdida ent 0.6774 val 1.4962 | F1 val 0.5401 (umbral 0.20) | 34.6 s
+  época  2 | pérdida ent 0.3779 val 1.7655 | F1 val 0.4862 (umbral 0.15) | 35.2 s
+  época  3 | pérdida ent 0.3143 val 2.0360 | F1 val 0.4379 (umbral 0.12) | 34.8 s
+  época  4 | pérdida ent 0.2784 val 2.2960 | F1 val 0.4405 (umbral 0.09) | 35.7 s
+  época  5 | pérdida ent 0.2566 val 2.4391 | F1 val 0.4386 (umbral 0.08) | 34.3 s
+  época  6 | pérdida ent 0.2382 val 2.5465 | F1 val 0.4388 (umbral 0.07) | 35.6 s
+  época  7 | pérdida ent 0.2250 val 2.4786 | F1 val 0.4246 (umbral 0.07) | 34.0 s
+  época  8 | pérdida ent 0.2226 val 2.4878 | F1 val 0.4245 (umbral 0.07) | 34.5 s
+  parada temprana en la época 8
+  modelo 2/4 listo (118.2 min)
+[s0] externo 3 (fuera: 106, 108, 116, 205, 207), val 2
+  época  1 | pérdida ent 0.8114 val 0.6748 | F1 val 0.9414 (umbral 0.78) | 34.9 s
+  época  2 | pérdida ent 0.5346 val 1.2689 | F1 val 0.5663 (umbral 0.84) | 35.3 s
+  época  3 | pérdida ent 0.4370 val 1.0620 | F1 val 0.7470 (umbral 0.23) | 34.9 s
+  época  4 | pérdida ent 0.3935 val 0.7399 | F1 val 0.7739 (umbral 0.34) | 35.2 s
+  época  5 | pérdida ent 0.3678 val 1.9169 | F1 val 0.4553 (umbral 0.11) | 35.2 s
+  época  6 | pérdida ent 0.3540 val 0.6575 | F1 val 0.7681 (umbral 0.69) | 34.9 s
+  época  7 | pérdida ent 0.3352 val 0.6714 | F1 val 0.7992 (umbral 0.39) | 34.5 s
+  época  8 | pérdida ent 0.3322 val 0.8302 | F1 val 0.8169 (umbral 0.26) | 35.4 s
+  época  9 | pérdida ent 0.3299 val 0.9186 | F1 val 0.7840 (umbral 0.22) | 34.7 s
+  época 10 | pérdida ent 0.3281 val 0.6704 | F1 val 0.8010 (umbral 0.41) | 36.0 s
+  época 11 | pérdida ent 0.3261 val 0.7021 | F1 val 0.7757 (umbral 0.45) | 35.9 s
+  época 12 | pérdida ent 0.3230 val 0.9112 | F1 val 0.7711 (umbral 0.24) | 36.2 s
+  época 13 | pérdida ent 0.3220 val 0.8818 | F1 val 0.7772 (umbral 0.27) | 34.8 s
+  época 14 | pérdida ent 0.3194 val 0.8359 | F1 val 0.7607 (umbral 0.31) | 34.4 s
+  época 15 | pérdida ent 0.3186 val 0.8360 | F1 val 0.7603 (umbral 0.32) | 34.6 s
+  parada temprana en la época 15
+  modelo 3/4 listo (127.0 min)
+[s0] externo 3 (fuera: 106, 108, 116, 205, 207), val 4
+  época  1 | pérdida ent 0.7514 val 1.4460 | F1 val 0.4706 (umbral 0.20) | 35.8 s
+  época  2 | pérdida ent 0.4895 val 1.5926 | F1 val 0.5930 (umbral 0.17) | 34.8 s
+  época  3 | pérdida ent 0.4326 val 0.9658 | F1 val 0.5517 (umbral 0.79) | 34.9 s
+  época  4 | pérdida ent 0.3957 val 1.7498 | F1 val 0.5806 (umbral 0.13) | 35.7 s
+  época  5 | pérdida ent 0.3753 val 1.8189 | F1 val 0.4387 (umbral 0.09) | 34.9 s
+  época  6 | pérdida ent 0.3558 val 1.9501 | F1 val 0.4376 (umbral 0.06) | 34.9 s
+  época  7 | pérdida ent 0.3472 val 1.9650 | F1 val 0.4376 (umbral 0.05) | 34.7 s
+  época  8 | pérdida ent 0.3278 val 1.4190 | F1 val 0.5695 (umbral 0.17) | 34.3 s
+  época  9 | pérdida ent 0.3248 val 1.3922 | F1 val 0.5305 (umbral 0.13) | 35.8 s
+  parada temprana en la época 9
+  modelo 4/4 listo (132.3 min)
+[s0] externo 4 (fuera: 114, 118, 122, 220), val 0
+  época  1 | pérdida ent 0.7386 val 0.6085 | F1 val 0.8171 (umbral 0.79) | 32.5 s
+  época  2 | pérdida ent 0.4058 val 0.5398 | F1 val 0.7366 (umbral 0.85) | 32.4 s
+  época  3 | pérdida ent 0.3418 val 0.5728 | F1 val 0.7091 (umbral 0.89) | 32.8 s
+  época  4 | pérdida ent 0.2951 val 0.5548 | F1 val 0.7350 (umbral 0.91) | 32.2 s
+  época  5 | pérdida ent 0.2758 val 0.5465 | F1 val 0.7326 (umbral 0.93) | 33.0 s
+  época  6 | pérdida ent 0.2533 val 0.5566 | F1 val 0.7503 (umbral 0.94) | 32.3 s
+  época  7 | pérdida ent 0.2394 val 0.6363 | F1 val 0.6817 (umbral 0.94) | 32.7 s
+  época  8 | pérdida ent 0.2359 val 0.6218 | F1 val 0.6900 (umbral 0.39) | 32.5 s
+  parada temprana en la época 8
+  modelo 1/4 listo (136.8 min)
+[s0] externo 4 (fuera: 114, 118, 122, 220), val 1
+  época  1 | pérdida ent 0.6668 val 1.3716 | F1 val 0.5037 (umbral 0.19) | 37.0 s
+  época  2 | pérdida ent 0.3910 val 1.6337 | F1 val 0.4180 (umbral 0.13) | 36.3 s
+  época  3 | pérdida ent 0.3263 val 1.9947 | F1 val 0.4171 (umbral 0.11) | 36.1 s
+  época  4 | pérdida ent 0.2929 val 1.8559 | F1 val 0.4339 (umbral 0.09) | 38.1 s
+  época  5 | pérdida ent 0.2685 val 2.2053 | F1 val 0.4170 (umbral 0.07) | 36.6 s
+  época  6 | pérdida ent 0.2515 val 2.5159 | F1 val 0.4133 (umbral 0.06) | 34183.2 s
+  época  7 | pérdida ent 0.2381 val 2.4221 | F1 val 0.4147 (umbral 0.06) | 84.9 s
+  época  8 | pérdida ent 0.2323 val 2.4342 | F1 val 0.4137 (umbral 0.06) | 83.7 s
+  parada temprana en la época 8
+  modelo 2/4 listo (712.4 min)
+[s0] externo 4 (fuera: 114, 118, 122, 220), val 2
+  época  1 | pérdida ent 0.7659 val 0.5898 | F1 val 0.9488 (umbral 0.77) | 84.6 s
+  época  2 | pérdida ent 0.5044 val 1.5123 | F1 val 0.6726 (umbral 0.18) | 84.2 s
+  época  3 | pérdida ent 0.4516 val 0.7424 | F1 val 0.7321 (umbral 0.33) | 84.4 s
+  época  4 | pérdida ent 0.4303 val 0.9244 | F1 val 0.7473 (umbral 0.24) | 84.5 s
+  época  5 | pérdida ent 0.4087 val 0.7894 | F1 val 0.7294 (umbral 0.25) | 84.8 s
+  época  6 | pérdida ent 0.3790 val 1.3257 | F1 val 0.7256 (umbral 0.16) | 84.3 s
+  época  7 | pérdida ent 0.3485 val 1.0605 | F1 val 0.7078 (umbral 0.32) | 84.4 s
+  época  8 | pérdida ent 0.3442 val 1.0381 | F1 val 0.7080 (umbral 0.34) | 84.2 s
+  parada temprana en la época 8
+  modelo 3/4 listo (723.6 min)
+[s0] externo 4 (fuera: 114, 118, 122, 220), val 3
+  época  1 | pérdida ent 0.7514 val 0.5189 | F1 val 0.8368 (umbral 0.66) | 80.7 s
+  época  2 | pérdida ent 0.4895 val 0.8211 | F1 val 0.8078 (umbral 0.18) | 79.7 s
+  época  3 | pérdida ent 0.4326 val 0.5544 | F1 val 0.7911 (umbral 0.87) | 81.0 s
+  época  4 | pérdida ent 0.3957 val 0.6914 | F1 val 0.8097 (umbral 0.15) | 79.9 s
+  época  5 | pérdida ent 0.3753 val 0.6096 | F1 val 0.7937 (umbral 0.26) | 80.4 s
+  época  6 | pérdida ent 0.3558 val 0.8518 | F1 val 0.7809 (umbral 0.13) | 79.1 s
+  época  7 | pérdida ent 0.3422 val 0.5600 | F1 val 0.7615 (umbral 0.49) | 80.2 s
+  época  8 | pérdida ent 0.3376 val 0.6382 | F1 val 0.7441 (umbral 0.29) | 81.6 s
+  parada temprana en la época 8
+  modelo 4/4 listo (734.4 min)
+[s0] umbral ensamble 0.292 (antes 0.675), F1 0.5848
+[qcnn_base_s0] PRUEBA: F1 0.6244, exactitud 0.6924, sensibilidad 0.9222
+Listo.
+[s2] externo 0 (fuera: 119, 203, 208, 215, 223), val 1
+  época  1 | pérdida ent 0.7331 val 1.4907 | F1 val 0.4218 (umbral 0.16) | 71.0 s
+  época  2 | pérdida ent 0.3920 val 1.4298 | F1 val 0.4086 (umbral 0.13) | 70.3 s
+  época  3 | pérdida ent 0.3076 val 1.5904 | F1 val 0.4260 (umbral 0.11) | 70.8 s
+  época  4 | pérdida ent 0.2587 val 2.0374 | F1 val 0.4274 (umbral 0.09) | 70.6 s
+  época  5 | pérdida ent 0.2247 val 1.8800 | F1 val 0.4342 (umbral 0.07) | 72.0 s
+  época  6 | pérdida ent 0.2023 val 1.7669 | F1 val 0.4338 (umbral 0.06) | 71.5 s
+  época  7 | pérdida ent 0.1793 val 2.2093 | F1 val 0.4338 (umbral 0.05) | 7342.1 s
+  época  8 | pérdida ent 0.1638 val 2.1299 | F1 val 0.4342 (umbral 0.04) | 70.4 s
+  época  9 | pérdida ent 0.1513 val 2.5846 | F1 val 0.4086 (umbral 0.04) | 71.1 s
+  época 10 | pérdida ent 0.1397 val 2.1989 | F1 val 0.4243 (umbral 0.04) | 71.0 s
+  época 11 | pérdida ent 0.1245 val 2.3920 | F1 val 0.4240 (umbral 0.03) | 73.8 s
+  época 12 | pérdida ent 0.1213 val 2.3256 | F1 val 0.4246 (umbral 0.03) | 45.3 s
+  parada temprana en la época 12
+  modelo 1/4 listo (135.1 min)
+[s2] externo 0 (fuera: 119, 203, 208, 215, 223), val 2
+  época  1 | pérdida ent 0.8407 val 0.8385 | F1 val 0.9963 (umbral 0.28) | 38.9 s
+  época  2 | pérdida ent 0.5180 val 0.6076 | F1 val 0.9480 (umbral 0.40) | 27.6 s
+  época  3 | pérdida ent 0.3980 val 0.4855 | F1 val 0.9429 (umbral 0.47) | 63.7 s
+  época  4 | pérdida ent 0.3570 val 0.3398 | F1 val 0.9844 (umbral 0.40) | 69.9 s
+  época  5 | pérdida ent 0.3256 val 0.7022 | F1 val 0.9905 (umbral 0.20) | 69.8 s
+  época  6 | pérdida ent 0.3056 val 0.2777 | F1 val 0.9584 (umbral 0.82) | 69.0 s
+  época  7 | pérdida ent 0.2868 val 1.3512 | F1 val 0.8126 (umbral 0.17) | 41.3 s
+  época  8 | pérdida ent 0.2652 val 0.8565 | F1 val 0.9812 (umbral 0.20) | 30.9 s
+  época  9 | pérdida ent 0.2496 val 0.2910 | F1 val 0.9739 (umbral 0.90) | 28.6 s
+  época 10 | pérdida ent 0.2354 val 0.1771 | F1 val 0.9870 (umbral 0.75) | 26.8 s
+  época 11 | pérdida ent 0.2317 val 0.1722 | F1 val 0.9884 (umbral 0.74) | 32.0 s
+  época 12 | pérdida ent 0.2301 val 0.1678 | F1 val 0.9886 (umbral 0.74) | 40.3 s
+  época 13 | pérdida ent 0.2286 val 0.1817 | F1 val 0.9884 (umbral 0.83) | 29.6 s
+  época 14 | pérdida ent 0.2277 val 0.1683 | F1 val 0.9900 (umbral 0.60) | 37.9 s
+  época 15 | pérdida ent 0.2248 val 0.1511 | F1 val 0.9939 (umbral 0.68) | 37.4 s
+  época 16 | pérdida ent 0.2234 val 0.1783 | F1 val 0.9890 (umbral 0.55) | 37.5 s
+  época 17 | pérdida ent 0.2205 val 0.1583 | F1 val 0.9905 (umbral 0.82) | 36.7 s
+  época 18 | pérdida ent 0.2203 val 0.1644 | F1 val 0.9896 (umbral 0.72) | 38.1 s
+  época 19 | pérdida ent 0.2175 val 0.1708 | F1 val 0.9880 (umbral 0.82) | 36.2 s
+  época 20 | pérdida ent 0.2139 val 0.1587 | F1 val 0.9923 (umbral 0.62) | 36.4 s
+  época 21 | pérdida ent 0.2136 val 0.1549 | F1 val 0.9899 (umbral 0.78) | 40.5 s
+  época 22 | pérdida ent 0.2122 val 0.1521 | F1 val 0.9907 (umbral 0.77) | 38.4 s
+  parada temprana en la época 22
+  modelo 2/4 listo (150.2 min)
+[s2] externo 0 (fuera: 119, 203, 208, 215, 223), val 3
+  época  1 | pérdida ent 0.8072 val 0.9183 | F1 val 0.7875 (umbral 0.23) | 34.3 s
+  época  2 | pérdida ent 0.4231 val 0.6059 | F1 val 0.7262 (umbral 0.50) | 34.4 s
+  época  3 | pérdida ent 0.3270 val 0.7626 | F1 val 0.6601 (umbral 0.64) | 33.7 s
+  época  4 | pérdida ent 0.2886 val 0.9462 | F1 val 0.5573 (umbral 0.25) | 46.3 s
+  época  5 | pérdida ent 0.2602 val 1.3847 | F1 val 0.4072 (umbral 0.10) | 39.5 s
+  época  6 | pérdida ent 0.2090 val 1.3152 | F1 val 0.5718 (umbral 0.08) | 37.6 s
+  época  7 | pérdida ent 0.1767 val 1.5209 | F1 val 0.4322 (umbral 0.07) | 37.6 s
+  época  8 | pérdida ent 0.1731 val 1.4090 | F1 val 0.5312 (umbral 0.07) | 36.6 s
+  parada temprana en la época 8
+  modelo 3/4 listo (155.2 min)
+[s2] externo 0 (fuera: 119, 203, 208, 215, 223), val 4
+  época  1 | pérdida ent 0.7455 val 1.6024 | F1 val 0.4836 (umbral 0.20) | 42.0 s
+  época  2 | pérdida ent 0.4179 val 1.5040 | F1 val 0.4554 (umbral 0.17) | 40.8 s
+  época  3 | pérdida ent 0.3430 val 1.9285 | F1 val 0.4916 (umbral 0.14) | 36.1 s
+  época  4 | pérdida ent 0.3019 val 1.7183 | F1 val 0.4475 (umbral 0.12) | 54.0 s
+  época  5 | pérdida ent 0.2790 val 1.1611 | F1 val 0.5297 (umbral 0.23) | 41.1 s
+  época  6 | pérdida ent 0.2624 val 1.6401 | F1 val 0.5059 (umbral 0.10) | 43.4 s
+  época  7 | pérdida ent 0.2404 val 1.2369 | F1 val 0.5439 (umbral 0.49) | 44.2 s
+  época  8 | pérdida ent 0.2055 val 1.3299 | F1 val 0.5497 (umbral 0.37) | 43.5 s
+  época  9 | pérdida ent 0.1961 val 2.2219 | F1 val 0.5179 (umbral 0.05) | 42.8 s
+  época 10 | pérdida ent 0.1698 val 2.3621 | F1 val 0.5276 (umbral 0.96) | 40.4 s
+  época 11 | pérdida ent 0.1557 val 1.4587 | F1 val 0.4763 (umbral 0.48) | 43.1 s
+  época 12 | pérdida ent 0.1507 val 1.9473 | F1 val 0.5029 (umbral 0.82) | 39.3 s
+  época 13 | pérdida ent 0.1389 val 1.9402 | F1 val 0.4674 (umbral 0.04) | 39.2 s
+  época 14 | pérdida ent 0.1341 val 1.9998 | F1 val 0.4637 (umbral 0.03) | 40.8 s
+  parada temprana en la época 14
+  modelo 4/4 listo (165.1 min)
+[s2] externo 1 (fuera: 112, 124, 201, 209), val 0
+  época  1 | pérdida ent 0.6879 val 0.5516 | F1 val 0.8174 (umbral 0.59) | 37.0 s
+  época  2 | pérdida ent 0.3692 val 0.4693 | F1 val 0.8385 (umbral 0.40) | 37.8 s
+  época  3 | pérdida ent 0.2939 val 0.4377 | F1 val 0.8291 (umbral 0.66) | 39.8 s
+  época  4 | pérdida ent 0.2505 val 0.5850 | F1 val 0.8565 (umbral 0.89) | 37.6 s
+  época  5 | pérdida ent 0.2200 val 0.4937 | F1 val 0.8342 (umbral 0.25) | 44.5 s
+  época  6 | pérdida ent 0.2043 val 0.4832 | F1 val 0.7933 (umbral 0.76) | 37.2 s
+  época  7 | pérdida ent 0.1836 val 0.6020 | F1 val 0.8333 (umbral 0.93) | 38.7 s
+  época  8 | pérdida ent 0.1695 val 0.4577 | F1 val 0.8194 (umbral 0.87) | 38.8 s
+  época  9 | pérdida ent 0.1673 val 0.4742 | F1 val 0.8034 (umbral 0.87) | 41.8 s
+  parada temprana en la época 9
+  modelo 1/4 listo (171.1 min)
+[s2] externo 1 (fuera: 112, 124, 201, 209), val 2
+  época  1 | pérdida ent 0.7028 val 0.6086 | F1 val 0.9890 (umbral 0.36) | 50.9 s
+  época  2 | pérdida ent 0.4226 val 1.5962 | F1 val 0.9709 (umbral 0.16) | 48.4 s
+  época  3 | pérdida ent 0.3597 val 0.2441 | F1 val 0.9918 (umbral 0.69) | 54.0 s
+  época  4 | pérdida ent 0.3276 val 0.2903 | F1 val 0.9840 (umbral 0.50) | 48.6 s
+  época  5 | pérdida ent 0.3038 val 0.7906 | F1 val 0.9846 (umbral 0.22) | 43.0 s
+  época  6 | pérdida ent 0.2846 val 1.2185 | F1 val 0.9828 (umbral 0.13) | 9170.8 s
+  época  7 | pérdida ent 0.2722 val 0.7341 | F1 val 0.9838 (umbral 0.22) | 77.9 s
+  época  8 | pérdida ent 0.2601 val 2.2050 | F1 val 0.9799 (umbral 0.06) | 82.1 s
+  época  9 | pérdida ent 0.2406 val 0.8937 | F1 val 0.9706 (umbral 0.18) | 81.9 s
+  época 10 | pérdida ent 0.2362 val 0.7925 | F1 val 0.9745 (umbral 0.21) | 81.2 s
+  parada temprana en la época 10
+  modelo 2/4 listo (333.5 min)
+[s2] externo 1 (fuera: 112, 124, 201, 209), val 3
+  época  1 | pérdida ent 0.6984 val 0.5050 | F1 val 0.8713 (umbral 0.75) | 78.9 s
+  época  2 | pérdida ent 0.3712 val 0.5485 | F1 val 0.8240 (umbral 0.86) | 78.4 s
+  época  3 | pérdida ent 0.3074 val 0.4552 | F1 val 0.8726 (umbral 0.88) | 78.8 s
+  época  4 | pérdida ent 0.2702 val 0.6047 | F1 val 0.7932 (umbral 0.91) | 79.5 s
+  época  5 | pérdida ent 0.2470 val 0.4142 | F1 val 0.8847 (umbral 0.92) | 80.0 s
+  época  6 | pérdida ent 0.2284 val 0.8222 | F1 val 0.7388 (umbral 0.94) | 78.4 s
+  época  7 | pérdida ent 0.2152 val 0.4347 | F1 val 0.8791 (umbral 0.93) | 79.2 s
+  época  8 | pérdida ent 0.2057 val 0.4243 | F1 val 0.8802 (umbral 0.93) | 78.9 s
+  parada temprana en la época 8
+  modelo 3/4 listo (344.0 min)
+[s2] externo 1 (fuera: 112, 124, 201, 209), val 4
+  época  1 | pérdida ent 0.6879 val 1.4081 | F1 val 0.8511 (umbral 0.18) | 84.0 s
+  época  2 | pérdida ent 0.4061 val 0.6316 | F1 val 0.8766 (umbral 0.27) | 83.4 s
+  época  3 | pérdida ent 0.3348 val 0.5905 | F1 val 0.7992 (umbral 0.53) | 83.1 s
+  época  4 | pérdida ent 0.3011 val 1.2322 | F1 val 0.5926 (umbral 0.29) | 82.9 s
+  época  5 | pérdida ent 0.2749 val 1.4582 | F1 val 0.7375 (umbral 0.09) | 82.3 s
+  época  6 | pérdida ent 0.2530 val 1.1226 | F1 val 0.5782 (umbral 0.30) | 83.6 s
+  época  7 | pérdida ent 0.2362 val 0.7406 | F1 val 0.7273 (umbral 0.56) | 83.3 s
+  época  8 | pérdida ent 0.2324 val 0.9292 | F1 val 0.6850 (umbral 0.44) | 82.5 s
+  parada temprana en la época 8
+  modelo 4/4 listo (355.1 min)
+[s2] externo 2 (fuera: 101, 109, 115, 230), val 0
+  época  1 | pérdida ent 0.8407 val 0.7547 | F1 val 0.6995 (umbral 0.28) | 73.7 s
+  época  2 | pérdida ent 0.5180 val 0.7872 | F1 val 0.5287 (umbral 0.24) | 74.1 s
+  época  3 | pérdida ent 0.3980 val 0.5602 | F1 val 0.7565 (umbral 0.83) | 74.5 s
+  época  4 | pérdida ent 0.3570 val 0.4859 | F1 val 0.7948 (umbral 0.89) | 75.0 s
+  época  5 | pérdida ent 0.3256 val 0.6534 | F1 val 0.6688 (umbral 0.42) | 74.5 s
+  época  6 | pérdida ent 0.3056 val 0.5201 | F1 val 0.7795 (umbral 0.92) | 73.8 s
+  época  7 | pérdida ent 0.2868 val 0.6657 | F1 val 0.7067 (umbral 0.19) | 73.2 s
+  época  8 | pérdida ent 0.2652 val 0.6084 | F1 val 0.7163 (umbral 0.46) | 73.6 s
+  época  9 | pérdida ent 0.2496 val 0.6586 | F1 val 0.7081 (umbral 0.91) | 73.8 s
+  época 10 | pérdida ent 0.2354 val 0.6154 | F1 val 0.7255 (umbral 0.91) | 74.2 s
+  época 11 | pérdida ent 0.2317 val 0.6118 | F1 val 0.7284 (umbral 0.92) | 74.6 s
+  parada temprana en la época 11
+  modelo 1/4 listo (368.9 min)
+[s2] externo 2 (fuera: 101, 109, 115, 230), val 1
+  época  1 | pérdida ent 0.7028 val 1.6305 | F1 val 0.4886 (umbral 0.19) | 84.6 s
+  época  2 | pérdida ent 0.4226 val 1.5770 | F1 val 0.4387 (umbral 0.14) | 84.2 s
+  época  3 | pérdida ent 0.3597 val 2.1209 | F1 val 0.4127 (umbral 0.11) | 84.3 s
+  época  4 | pérdida ent 0.3276 val 2.2491 | F1 val 0.4101 (umbral 0.09) | 84.4 s
+  época  5 | pérdida ent 0.3038 val 2.2182 | F1 val 0.4203 (umbral 0.07) | 84.1 s
+  época  6 | pérdida ent 0.2846 val 2.1595 | F1 val 0.4393 (umbral 0.07) | 84.2 s
+  época  7 | pérdida ent 0.2674 val 2.5379 | F1 val 0.4088 (umbral 0.05) | 83.8 s
+  época  8 | pérdida ent 0.2625 val 2.5165 | F1 val 0.4086 (umbral 0.01) | 83.9 s
+  parada temprana en la época 8
+  modelo 2/4 listo (380.1 min)
+[s2] externo 2 (fuera: 101, 109, 115, 230), val 3
+  época  1 | pérdida ent 0.8405 val 0.5738 | F1 val 0.7775 (umbral 0.54) | 81.0 s
+  época  2 | pérdida ent 0.5711 val 0.6971 | F1 val 0.6942 (umbral 0.40) | 80.8 s
+  época  3 | pérdida ent 0.4300 val 1.0866 | F1 val 0.5733 (umbral 0.83) | 80.6 s
+  época  4 | pérdida ent 0.3700 val 0.6381 | F1 val 0.7115 (umbral 0.35) | 80.5 s
+  época  5 | pérdida ent 0.3298 val 1.3103 | F1 val 0.6029 (umbral 0.92) | 80.9 s
+  época  6 | pérdida ent 0.3036 val 0.7158 | F1 val 0.7131 (umbral 0.88) | 83.0 s
+  época  7 | pérdida ent 0.2776 val 0.5027 | F1 val 0.8095 (umbral 0.86) | 81.1 s
+  época  8 | pérdida ent 0.2714 val 0.5236 | F1 val 0.8257 (umbral 0.91) | 91.7 s
+  época  9 | pérdida ent 0.2678 val 0.6138 | F1 val 0.8223 (umbral 0.94) | 95.3 s
+  época 10 | pérdida ent 0.2644 val 0.5667 | F1 val 0.8032 (umbral 0.92) | 94.6 s
+  época 11 | pérdida ent 0.2626 val 0.6131 | F1 val 0.8216 (umbral 0.94) | 94.5 s
+  época 12 | pérdida ent 0.2589 val 0.6151 | F1 val 0.8306 (umbral 0.94) | 94.4 s
+  época 13 | pérdida ent 0.2545 val 0.5387 | F1 val 0.8258 (umbral 0.91) | 94.8 s
+  época 14 | pérdida ent 0.2560 val 0.5381 | F1 val 0.8274 (umbral 0.93) | 94.4 s
+  época 15 | pérdida ent 0.2551 val 0.5533 | F1 val 0.8231 (umbral 0.93) | 96.2 s
+  época 16 | pérdida ent 0.2539 val 0.5516 | F1 val 0.8237 (umbral 0.92) | 95.3 s
+  época 17 | pérdida ent 0.2564 val 0.5330 | F1 val 0.8183 (umbral 0.91) | 95.9 s
+  época 18 | pérdida ent 0.2549 val 0.5516 | F1 val 0.8213 (umbral 0.92) | 95.2 s
+  época 19 | pérdida ent 0.2540 val 0.5567 | F1 val 0.8230 (umbral 0.93) | 95.5 s
+  parada temprana en la época 19
+  modelo 3/4 listo (408.6 min)
+[s2] externo 2 (fuera: 101, 109, 115, 230), val 4
+  época  1 | pérdida ent 0.7654 val 1.6326 | F1 val 0.4376 (umbral 0.13) | 100.4 s
+  época  2 | pérdida ent 0.5054 val 1.2854 | F1 val 0.5214 (umbral 0.16) | 100.3 s
+  época  3 | pérdida ent 0.4538 val 1.6551 | F1 val 0.4382 (umbral 0.12) | 100.7 s
+  época  4 | pérdida ent 0.4255 val 0.8273 | F1 val 0.6887 (umbral 0.67) | 100.7 s
+  época  5 | pérdida ent 0.3894 val 0.7583 | F1 val 0.7627 (umbral 0.48) | 100.6 s
+  época  6 | pérdida ent 0.3599 val 0.8442 | F1 val 0.6820 (umbral 0.49) | 100.4 s
+  época  7 | pérdida ent 0.3265 val 1.6934 | F1 val 0.8138 (umbral 0.09) | 100.8 s
+  época  8 | pérdida ent 0.3161 val 1.0911 | F1 val 0.6777 (umbral 0.94) | 7544.4 s
+  época  9 | pérdida ent 0.3032 val 0.8941 | F1 val 0.7002 (umbral 0.47) | 45.4 s
+  época 10 | pérdida ent 0.2795 val 0.5828 | F1 val 0.8279 (umbral 0.62) | 28.7 s
+  época 11 | pérdida ent 0.2553 val 0.8056 | F1 val 0.7013 (umbral 0.63) | 30.2 s
+  época 12 | pérdida ent 0.2529 val 0.7518 | F1 val 0.7452 (umbral 0.59) | 39.2 s
+  época 13 | pérdida ent 0.2497 val 0.7835 | F1 val 0.7099 (umbral 0.60) | 38.7 s
+  época 14 | pérdida ent 0.2488 val 0.7870 | F1 val 0.7245 (umbral 0.60) | 39.3 s
+  época 15 | pérdida ent 0.2487 val 0.7452 | F1 val 0.7397 (umbral 0.59) | 41.0 s
+  época 16 | pérdida ent 0.2437 val 0.7965 | F1 val 0.7307 (umbral 0.53) | 40.0 s
+  época 17 | pérdida ent 0.2432 val 0.7762 | F1 val 0.7263 (umbral 0.57) | 37.5 s
+  parada temprana en la época 17
+  modelo 4/4 listo (551.7 min)
+[s2] externo 3 (fuera: 106, 108, 116, 205, 207), val 0
+  época  1 | pérdida ent 0.8072 val 0.9702 | F1 val 0.5560 (umbral 0.21) | 30.6 s
+  época  2 | pérdida ent 0.4231 val 0.6329 | F1 val 0.7132 (umbral 0.84) | 31.1 s
+  época  3 | pérdida ent 0.3270 val 0.8754 | F1 val 0.6230 (umbral 0.88) | 30.1 s
+  época  4 | pérdida ent 0.2886 val 0.9885 | F1 val 0.4980 (umbral 0.86) | 30.3 s
+  época  5 | pérdida ent 0.2602 val 1.0034 | F1 val 0.6314 (umbral 0.11) | 31.9 s
+  época  6 | pérdida ent 0.2090 val 0.5839 | F1 val 0.7089 (umbral 0.78) | 31.3 s
+  época  7 | pérdida ent 0.1767 val 0.6556 | F1 val 0.6574 (umbral 0.37) | 30.2 s
+  época  8 | pérdida ent 0.1731 val 0.5839 | F1 val 0.7119 (umbral 0.86) | 37.0 s
+  época  9 | pérdida ent 0.1697 val 0.6045 | F1 val 0.7043 (umbral 0.90) | 36.8 s
+  época 10 | pérdida ent 0.1676 val 0.6024 | F1 val 0.6934 (umbral 0.81) | 37.0 s
+  época 11 | pérdida ent 0.1644 val 0.6043 | F1 val 0.7518 (umbral 0.94) | 35.6 s
+  época 12 | pérdida ent 0.1623 val 0.5997 | F1 val 0.7186 (umbral 0.92) | 35.6 s
+  época 13 | pérdida ent 0.1578 val 0.5891 | F1 val 0.7245 (umbral 0.92) | 33.8 s
+  época 14 | pérdida ent 0.1557 val 0.5842 | F1 val 0.7116 (umbral 0.82) | 32.4 s
+  época 15 | pérdida ent 0.1528 val 0.6130 | F1 val 0.7556 (umbral 0.94) | 33.0 s
+  época 16 | pérdida ent 0.1505 val 0.6303 | F1 val 0.6985 (umbral 0.93) | 31.7 s
+  época 17 | pérdida ent 0.1483 val 0.6021 | F1 val 0.7205 (umbral 0.92) | 34.2 s
+  época 18 | pérdida ent 0.1479 val 0.6030 | F1 val 0.7328 (umbral 0.94) | 34.1 s
+  parada temprana en la época 18
+  modelo 1/4 listo (561.8 min)
+[s2] externo 3 (fuera: 106, 108, 116, 205, 207), val 1
+  época  1 | pérdida ent 0.6984 val 1.6305 | F1 val 0.4737 (umbral 0.18) | 35.2 s
+  época  2 | pérdida ent 0.3712 val 1.8081 | F1 val 0.4261 (umbral 0.14) | 35.8 s
+  época  3 | pérdida ent 0.3074 val 2.0618 | F1 val 0.4221 (umbral 0.11) | 36.1 s
+  época  4 | pérdida ent 0.2702 val 2.1376 | F1 val 0.4086 (umbral 0.06) | 38.5 s
+  época  5 | pérdida ent 0.2470 val 2.4166 | F1 val 0.4317 (umbral 0.07) | 39.8 s
+  época  6 | pérdida ent 0.2284 val 2.2677 | F1 val 0.4086 (umbral 0.01) | 36.8 s
+  época  7 | pérdida ent 0.2152 val 2.5002 | F1 val 0.4178 (umbral 0.06) | 37.4 s
+  época  8 | pérdida ent 0.2057 val 2.5085 | F1 val 0.4121 (umbral 0.06) | 38.3 s
+  parada temprana en la época 8
+  modelo 2/4 listo (566.7 min)
+[s2] externo 3 (fuera: 106, 108, 116, 205, 207), val 2
+  época  1 | pérdida ent 0.8405 val 0.5917 | F1 val 0.9795 (umbral 0.35) | 37.6 s
+  época  2 | pérdida ent 0.5711 val 0.4135 | F1 val 0.9727 (umbral 0.62) | 37.5 s
+  época  3 | pérdida ent 0.4300 val 1.1921 | F1 val 0.8733 (umbral 0.89) | 37.3 s
+  época  4 | pérdida ent 0.3700 val 0.3831 | F1 val 0.9680 (umbral 0.54) | 38.2 s
+  época  5 | pérdida ent 0.3298 val 1.4757 | F1 val 0.5751 (umbral 0.90) | 39.7 s
+  época  6 | pérdida ent 0.3036 val 1.0095 | F1 val 0.6292 (umbral 0.76) | 39.2 s
+  época  7 | pérdida ent 0.2776 val 0.8111 | F1 val 0.7030 (umbral 0.49) | 37.3 s
+  época  8 | pérdida ent 0.2714 val 0.7638 | F1 val 0.7116 (umbral 0.64) | 37.6 s
+  parada temprana en la época 8
+  modelo 3/4 listo (571.8 min)
+[s2] externo 3 (fuera: 106, 108, 116, 205, 207), val 4
+  época  1 | pérdida ent 0.7545 val 1.5214 | F1 val 0.4963 (umbral 0.19) | 39.2 s
+  época  2 | pérdida ent 0.4826 val 1.8401 | F1 val 0.4378 (umbral 0.14) | 40.2 s
+  época  3 | pérdida ent 0.4317 val 1.5408 | F1 val 0.5118 (umbral 0.15) | 39.1 s
+  época  4 | pérdida ent 0.4046 val 1.5631 | F1 val 0.4955 (umbral 0.13) | 39.6 s
+  época  5 | pérdida ent 0.3803 val 0.8056 | F1 val 0.7275 (umbral 0.35) | 50.2 s
+  época  6 | pérdida ent 0.3644 val 1.2592 | F1 val 0.5754 (umbral 0.12) | 38.5 s
+  época  7 | pérdida ent 0.3457 val 1.2286 | F1 val 0.5487 (umbral 0.33) | 39.7 s
+  época  8 | pérdida ent 0.3300 val 1.3583 | F1 val 0.5363 (umbral 0.14) | 38.4 s
+  época  9 | pérdida ent 0.3157 val 1.6779 | F1 val 0.5397 (umbral 0.16) | 37.1 s
+  época 10 | pérdida ent 0.3028 val 1.4990 | F1 val 0.7361 (umbral 0.15) | 36.9 s
+  época 11 | pérdida ent 0.2839 val 1.1258 | F1 val 0.5805 (umbral 0.28) | 38.0 s
+  época 12 | pérdida ent 0.2799 val 0.9720 | F1 val 0.5724 (umbral 0.14) | 37.7 s
+  época 13 | pérdida ent 0.2790 val 0.9369 | F1 val 0.5683 (umbral 0.15) | 37.3 s
+  época 14 | pérdida ent 0.2746 val 1.0105 | F1 val 0.6061 (umbral 0.35) | 46.8 s
+  época 15 | pérdida ent 0.2726 val 1.1042 | F1 val 0.6231 (umbral 0.29) | 45.6 s
+  época 16 | pérdida ent 0.2707 val 1.0021 | F1 val 0.5623 (umbral 0.15) | 55.2 s
+  época 17 | pérdida ent 0.2699 val 1.0444 | F1 val 0.5582 (umbral 0.14) | 38.3 s
+  parada temprana en la época 17
+  modelo 4/4 listo (583.4 min)
+[s2] externo 4 (fuera: 114, 118, 122, 220), val 0
+  época  1 | pérdida ent 0.7455 val 0.6006 | F1 val 0.7681 (umbral 0.77) | 32.6 s
+  época  2 | pérdida ent 0.4179 val 0.9775 | F1 val 0.5872 (umbral 0.18) | 32.7 s
+  época  3 | pérdida ent 0.3430 val 0.7303 | F1 val 0.7007 (umbral 0.89) | 31.7 s
+  época  4 | pérdida ent 0.3019 val 0.8271 | F1 val 0.7534 (umbral 0.13) | 32.5 s
+  época  5 | pérdida ent 0.2790 val 0.7713 | F1 val 0.7697 (umbral 0.93) | 34.3 s
+  época  6 | pérdida ent 0.2624 val 0.6378 | F1 val 0.7240 (umbral 0.94) | 33.1 s
+  época  7 | pérdida ent 0.2404 val 0.8408 | F1 val 0.7785 (umbral 0.94) | 34.7 s
+  época  8 | pérdida ent 0.2055 val 0.9228 | F1 val 0.6709 (umbral 0.95) | 32.8 s
+  época  9 | pérdida ent 0.1961 val 0.6690 | F1 val 0.7320 (umbral 0.26) | 33.0 s
+  época 10 | pérdida ent 0.1698 val 2.5824 | F1 val 0.6614 (umbral 0.97) | 32.5 s
+  época 11 | pérdida ent 0.1523 val 0.6809 | F1 val 0.6822 (umbral 0.96) | 33.6 s
+  época 12 | pérdida ent 0.1500 val 0.6893 | F1 val 0.6836 (umbral 0.96) | 37.2 s
+  parada temprana en la época 12
+  modelo 1/4 listo (590.3 min)
+[s2] externo 4 (fuera: 114, 118, 122, 220), val 1
+  época  1 | pérdida ent 0.6879 val 1.4084 | F1 val 0.4668 (umbral 0.18) | 40.2 s
+  época  2 | pérdida ent 0.4061 val 1.7798 | F1 val 0.4625 (umbral 0.14) | 40.1 s
+  época  3 | pérdida ent 0.3348 val 1.9165 | F1 val 0.4514 (umbral 0.12) | 41.7 s
+  época  4 | pérdida ent 0.3011 val 2.0693 | F1 val 0.4179 (umbral 0.09) | 37.0 s
+  época  5 | pérdida ent 0.2749 val 1.9480 | F1 val 0.4308 (umbral 0.07) | 36.1 s
+  época  6 | pérdida ent 0.2530 val 2.1875 | F1 val 0.4150 (umbral 0.06) | 34.9 s
+  época  7 | pérdida ent 0.2362 val 2.4114 | F1 val 0.4130 (umbral 0.06) | 37.7 s
+  época  8 | pérdida ent 0.2324 val 2.2909 | F1 val 0.4156 (umbral 0.06) | 43.8 s
+  parada temprana en la época 8
+  modelo 2/4 listo (595.5 min)
+[s2] externo 4 (fuera: 114, 118, 122, 220), val 2
+  época  1 | pérdida ent 0.7654 val 1.3779 | F1 val 0.9883 (umbral 0.21) | 42.5 s
+  época  2 | pérdida ent 0.5054 val 0.4174 | F1 val 0.9682 (umbral 0.62) | 36.4 s
+  época  3 | pérdida ent 0.4538 val 0.8655 | F1 val 0.9543 (umbral 0.25) | 45.7 s
+  época  4 | pérdida ent 0.4255 val 0.3222 | F1 val 0.9690 (umbral 0.74) | 40.0 s
+  época  5 | pérdida ent 0.3894 val 0.6362 | F1 val 0.9167 (umbral 0.40) | 35.6 s
+  época  6 | pérdida ent 0.3599 val 1.1529 | F1 val 0.7147 (umbral 0.24) | 37.5 s
+  época  7 | pérdida ent 0.3239 val 0.9743 | F1 val 0.6615 (umbral 0.33) | 36.4 s
+  época  8 | pérdida ent 0.3171 val 0.9943 | F1 val 0.6971 (umbral 0.32) | 36.5 s
+  parada temprana en la época 8
+  modelo 3/4 listo (600.7 min)
+[s2] externo 4 (fuera: 114, 118, 122, 220), val 3
+  época  1 | pérdida ent 0.7545 val 0.6314 | F1 val 0.7964 (umbral 0.44) | 38.4 s
+  época  2 | pérdida ent 0.4826 val 0.5632 | F1 val 0.7540 (umbral 0.63) | 44.3 s
+  época  3 | pérdida ent 0.4317 val 0.5467 | F1 val 0.7768 (umbral 0.45) | 41.4 s
+  época  4 | pérdida ent 0.4046 val 0.5247 | F1 val 0.7831 (umbral 0.47) | 41.7 s
+  época  5 | pérdida ent 0.3803 val 0.5414 | F1 val 0.7874 (umbral 0.85) | 39.3 s
+  época  6 | pérdida ent 0.3644 val 0.6435 | F1 val 0.7324 (umbral 0.39) | 42.6 s
+  época  7 | pérdida ent 0.3457 val 0.6277 | F1 val 0.7508 (umbral 0.38) | 38.4 s
+  época  8 | pérdida ent 0.3300 val 0.7583 | F1 val 0.7409 (umbral 0.94) | 37.5 s
+  época  9 | pérdida ent 0.3152 val 0.6827 | F1 val 0.7433 (umbral 0.35) | 36.8 s
+  época 10 | pérdida ent 0.3099 val 0.6477 | F1 val 0.7403 (umbral 0.42) | 36.4 s
+  parada temprana en la época 10
+  modelo 4/4 listo (607.3 min)
+[s2] umbral ensamble 0.369 (antes 0.479), F1 0.5694
+[qcnn_base_s2] PRUEBA: F1 0.6245, exactitud 0.6927, sensibilidad 0.9218
+Listo.

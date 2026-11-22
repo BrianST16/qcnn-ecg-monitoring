@@ -1,4 +1,13 @@
 {
+  "id": "cnn1d-base-v1",
+  "nombre": "CNN 1-D",
+  "entrenado_con": "MIT-BIH, DS1 (22 pacientes); modelo único, umbral por CV de 5 pliegues",
+  "metricas_prueba": {
+    "f1": 0.5521,
+    "exactitud": 0.8133,
+    "auc_roc": 0.8131,
+    "pacientes": 21
+  },
   "variante": "base",
   "semilla": 0,
   "umbral": 0.6149861812591553,

@@ -9,5 +9,5 @@ class ClasificadorQCNN(ClasificadorCNN):
     """
 
     clave = "qcnn"
-    id = "qcnn-hibrida-v1"
+    id = "qcnn-hibrida"
     nombre = "QCNN (simulada)"  # simulada = circuito cuántico ejecutado en un simulador

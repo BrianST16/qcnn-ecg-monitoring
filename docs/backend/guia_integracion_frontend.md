@@ -13,7 +13,7 @@ PYTHONPATH=. uv run --project .. uvicorn app.main:app --port 8000
 ```
 
 - Documentación interactiva: `http://localhost:8000/docs` (solo si `DOCS_HABILITADOS=true`).
-- Comprobación rápida: `GET http://localhost:8000/api/v1/salud` → `{"estado":"ok","modelos_cargados":["cnn","qcnn"],"version_api":"1.0.0"}`.
+- Comprobación rápida: `GET http://localhost:8000/api/v1/salud` → `{"estado":"ok","modelos_cargados":["cnn","qcnn"],"version_api":"1.1.0"}`.
 - `modelos_cargados` dice qué modelos hay: si no aparece `qcnn`, el servidor está con `QCNN_MODO=desactivada` y su bloque llegará como `no_disponible`.
 - Los modelos se cargan **una vez al arrancar**; el arranque con la QCNN tarda más porque importa Qiskit.
 
@@ -71,7 +71,7 @@ Los códigos `NO_AUTORIZADO`, `DEMASIADAS_PETICIONES`, `SERVICIO_OCUPADO` y `SOL
 - **Un bloque por modelo:** `resultados.cnn` y `resultados.qcnn`, siempre los dos. Mirar `estado` antes de leer el resto: si no es `"ok"`, `modelo`, `resumen` y `latidos` son `null` y `mensaje` explica por qué.
 - **Marcar latidos en el gráfico:** `x = latidos[].tiempo_s` (misma escala que `tiempo_s` del CSV); verde si `clase == "NORMAL"`, rojo si `"ANORMAL"`. Tooltip con `probabilidad_anormal` y `rr_previo_s` (`null` en el primero).
 - **Comparar CNN y QCNN latido a latido:** ambos bloques traen el mismo `indice` y `tiempo_s` por latido. Se pueden resaltar los que difieren en `clase`.
-- **Tarjetas de comparación:** `resumen` y `tiempo_inferencia_ms` de cada modelo.
+- **Tarjetas de comparación:** `resumen` y `tiempo_inferencia_ms` de cada modelo (de `/analisis`), más `metricas_prueba` y, para la QCNN, `circuito` (de `GET /modelos`): ancho, profundidad y compuertas de 1 y 2 qubits.
 - **Redondear al mostrar:** el backend devuelve decimales sin redondear (por ejemplo, `umbral` 0.6149861812591553). Mostrar 2–4 decimales.
 - **No todos los latidos se evalúan:** `deteccion.latidos_evaluados` puede ser menor que `latidos_detectados` (los de los bordes se descartan). Hay que usar `latidos_evaluados` para porcentajes.
 
@@ -97,15 +97,15 @@ Los códigos `NO_AUTORIZADO`, `DEMASIADAS_PETICIONES`, `SERVICIO_OCUPADO` y `SOL
 
 **Resultados de los modelos (para no sobrevender)**
 - Son experimentales y se evalúan con pacientes que los modelos no vieron, pero el rendimiento varía mucho entre pacientes y entre semillas de entrenamiento (F1 de la CNN entre 0.5 y 0.65).
-- **La QCNN tiene un umbral problemático.** Su umbral (≈ 0.28) se calculó con modelos individuales y se aplica a un ensamble de 5 que promedia sus probabilidades. En el ejemplo `ejemplo_ecg.csv` marca 46 de 51 latidos como anormales, contra 8 de la CNN, mientras que las anotaciones indican 10 ventriculares y 1 de fusión. **No presentar el resultado de la QCNN como fiable hasta que se recalibre el umbral** (hay un recálculo en curso con validación cruzada anidada). El frontend no necesita cambios cuando eso ocurra: solo cambiarán las probabilidades y el umbral.
+- **Umbral de la QCNN recalibrado.** El umbral se fijó con validación cruzada anidada sobre el ensamble (0.504). En `ejemplo_ecg.csv` la QCNN marca 9 de 51 latidos como anormales y acierta 49 (la CNN, 46). Un solo fragmento no indica cuál es mejor: en 21 pacientes de prueba su desempeño es comparable.
 - `parametros` del bloque `modelo` es la **suma de todos los modelos del ensamble** (CNN: 11 265; QCNN: 4 640, es decir, 5 × 928).
-- **Tiempos:** el ejemplo de 30 s tarda unos 0.2 s en total, con unos 130 ms de QCNN. Para 5 min la QCNN tardaría del orden de 1 s (estimado, sin medir). La QCNN es un circuito cuántico **simulado**: no hay ventaja de velocidad.
+- **Tiempos (i5-1145G7, CPU):** el ejemplo de 30 s tarda unos 0.21 s (QCNN 150 ms) y 5 min de señal (516 latidos) entre 0.87 y 0.94 s (QCNN 349 ms). Cabe en el segundo del contrato con poco margen. La QCNN es un circuito cuántico **simulado**: no hay ventaja de velocidad.
 - La QCNN se llama `"QCNN (simulada)"` en todo el sistema: no ocultar la palabra *simulada*.
 
-**Diferencias con el contrato v1 que el frontend ya encontrará**
-- `GET /modelos` devuelve `entrenado_con` y `metricas_prueba` en `null` aunque el modelo esté cargado (el contrato los muestra con valores). No dependan de ellos hasta que el backend los complete.
-- La frase del contrato *"La QCNN se integrará en el Ciclo 3"* solo aparece cuando la QCNN está desactivada.
-- `docs/api/ejemplo_respuesta.json` fue generado con la CNN y la QCNN `no_disponible`; con `QCNN_MODO=real` el bloque `qcnn` viene lleno.
+**Cambios del contrato (v1 → v1.1)**
+- **Contrato v1.1:** `GET /modelos` trae `entrenado_con`, `metricas_prueba` (del modelo desplegado) y el campo nuevo `circuito` (`null` en la CNN). El `umbral` llega redondeado a 4 decimales; las probabilidades ya venían a 4.
+- Si el servidor corre con `QCNN_MODO=desactivada`, el bloque `qcnn` llega `no_disponible` con el mensaje *"La QCNN no está activa en este servidor."*
+- `docs/api/ejemplo_respuesta.json` trae los dos modelos reales; sirve como dato de prueba para la interfaz sin levantar el backend.
 
 **Rendimiento y diseño**
 - Un análisis es **síncrono** (menos de 1 s para el ejemplo); no hace falta *polling*. Mostrar un indicador de carga y desactivar el botón mientras dura la petición.
