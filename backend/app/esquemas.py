@@ -22,6 +22,17 @@ class MetricasPrueba(BaseModel):
     pacientes: int
 
 
+class CostoCircuito(BaseModel):
+    """Costo del circuito cuántico (solo QCNN): circuito lógico y CNOT en conectividad lineal."""
+
+    parametros_cuanticos: int
+    ancho: int
+    profundidad: int
+    compuertas_1q: int
+    compuertas_2q: int
+    compuertas_2q_conectividad_lineal: int
+
+
 class FichaModelo(BaseModel):
     id: str | None
     clave: Literal["cnn", "qcnn"]
@@ -31,6 +42,7 @@ class FichaModelo(BaseModel):
     umbral: float | None
     entrenado_con: str | None
     metricas_prueba: MetricasPrueba | None
+    circuito: CostoCircuito | None = None  # campo añadido a v1: null para la CNN
 
 
 class RespuestaModelos(BaseModel):

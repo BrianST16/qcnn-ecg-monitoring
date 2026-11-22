@@ -1,3 +1,4 @@
+import json
 import time
 from types import SimpleNamespace
 
@@ -31,10 +32,16 @@ def test_qcnn_real_carga_el_ensamble_y_cumple_el_contrato(tmp_path):
         {"estados": [QCNN(cfg).state_dict() for _ in range(2)], "config_modelo": cfg.a_dict(), "umbral": 0.4},
         ruta,
     )
+    circuito = {"parametros_cuanticos": 18, "ancho": 8, "profundidad": 50, "compuertas_1q": 101,
+                "compuertas_2q": 53, "compuertas_2q_conectividad_lineal": 83}
+    ficha = {"id": "qcnn-x", "entrenado_con": "DS1", "circuito": circuito,
+             "metricas_prueba": {"f1": 0.6, "exactitud": 0.8, "auc_roc": 0.87, "pacientes": 21}}
+    ruta.with_suffix(".json").write_text(json.dumps(ficha), encoding="utf-8")
     ajustes_real = ajustes("real")
     ajustes_real.ruta_modelo_qcnn = ruta
     qcnn = cargar_modelos(ajustes_real)["qcnn"]
     assert qcnn.clave == "qcnn" and qcnn.umbral == pytest.approx(0.4)
+    assert qcnn.id == "qcnn-x" and qcnn.circuito == circuito and qcnn.metricas_prueba["pacientes"] == 21
     assert qcnn.parametros == 2 * sum(p.numel() for p in QCNN(cfg).parameters())
     procesada = construir_procesada(6)
     p = qcnn.probabilidades(procesada.ventanas, procesada.rr)

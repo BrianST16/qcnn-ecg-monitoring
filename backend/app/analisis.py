@@ -24,7 +24,7 @@ from app.procesamiento import SenalProcesada
 log = logging.getLogger("uvicorn.error")
 
 CLAVES_MODELOS = ("cnn", "qcnn")
-MENSAJE_QCNN = "La QCNN se integrará en el Ciclo 3 del proyecto."
+MENSAJE_QCNN = "La QCNN no está activa en este servidor."
 
 
 def _redondear_o_none(valor: float, decimales: int) -> float | None:
@@ -71,7 +71,7 @@ def ejecutar_modelo(clasificador: Clasificador, procesada: SenalProcesada) -> Re
             id=clasificador.id,
             nombre=clasificador.nombre,
             parametros=clasificador.parametros,
-            umbral=clasificador.umbral,
+            umbral=round(clasificador.umbral, 4),
         ),
         tiempo_inferencia_ms=round(tiempo_ms, 1),
         resumen=Resumen(
