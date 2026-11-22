@@ -1,53 +1,68 @@
 {
+  "id": "qcnn-hibrida-v1",
+  "nombre": "QCNN (simulada)",
   "variante": "qcnn_base",
   "semilla": 1,
-  "ensamble_de": 5,
-  "criterio": "mayor F1 OOF entre las semillas 0, 1 y 2",
-  "umbral": 0.28057149052619934,
-  "parametros_por_modelo": 928,
-  "conjunto": "mitdb_binario_v2",
-  "cv_oof": {
+  "criterio": "mayor F1 del ensamble fuera de pliegue (CV anidada) entre semillas",
+  "umbral": 0.5036232471466064,
+  "entrenado_con": "MIT-BIH, DS1 (22 pacientes); ensamble de 5, umbral por CV anidada",
+  "metricas_prueba": {
+    "f1": 0.6212,
+    "exactitud": 0.8245,
+    "auc_roc": 0.879,
+    "pacientes": 21
+  },
+  "oof_ensamble": {
     "n": 50990,
-    "umbral": 0.28057149052619934,
-    "exactitud": 0.7530692292606394,
-    "precision": 0.5079995923774585,
-    "sensibilidad": 0.7725687717938784,
-    "especificidad": 0.7464618616253118,
-    "f1": 0.6129537979158342,
-    "f1_macro": 0.7158276455489407,
-    "auc_roc": 0.7517458048349913,
-    "auc_pr": 0.5325385783433878,
+    "umbral": 0.5036232471466064,
+    "exactitud": 0.8029025299078251,
+    "precision": 0.5935390865605137,
+    "sensibilidad": 0.7018984889577683,
+    "especificidad": 0.8371274780097151,
+    "f1": 0.6431868209898459,
+    "f1_macro": 0.753516893844965,
+    "auc_roc": 0.7974739785804068,
+    "auc_pr": 0.5855152878783254,
     "matriz_confusion": [
       [
-        28429,
-        9656
+        31882,
+        6203
       ],
       [
-        2935,
-        9970
+        3847,
+        9058
       ]
     ]
   },
   "prueba": {
     "n": 47548,
-    "umbral": 0.28057149052619934,
-    "exactitud": 0.737822831664844,
-    "precision": 0.5158225050826483,
-    "sensibilidad": 0.8853739948414505,
-    "especificidad": 0.6812256299831229,
-    "f1": 0.6518655049151028,
-    "f1_macro": 0.7208018659375136,
+    "umbral": 0.5036232471466064,
+    "exactitud": 0.8244931437705056,
+    "precision": 0.7733077183862583,
+    "sensibilidad": 0.5191169776968594,
+    "especificidad": 0.9416283536053076,
+    "f1": 0.6212155598928782,
+    "f1_macro": 0.7535010941187514,
     "auc_roc": 0.8789720262799218,
     "auc_pr": 0.7527342700612745,
     "matriz_confusion": [
       [
-        23411,
-        10955
+        32360,
+        2006
       ],
       [
-        1511,
-        11671
+        6339,
+        6843
       ]
     ]
+  },
+  "conjunto": "mitdb_binario_v2",
+  "circuito": {
+    "parametros_cuanticos": 18,
+    "ancho": 8,
+    "profundidad": 50,
+    "compuertas_1q": 101,
+    "compuertas_2q": 53,
+    "compuertas_2q_conectividad_lineal": 83
   }
 }
